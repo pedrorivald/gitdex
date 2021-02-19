@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  color: #333;
+}
+html, body { height: 100%; }
+body {
+  background: linear-gradient(to bottom, #09142c 20%, #660066 100%);
+  background-attachment: fixed;
+  margin: 0;
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+}

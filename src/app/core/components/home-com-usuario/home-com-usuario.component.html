@@ -1,0 +1,80 @@
+<div class="home-com-perfil">
+  <div class="com-usuario">
+    <div class="com-usuario-foto">
+      <img src="{{ usuarioService.usuario.avatar_url }}" alt="Usuário" />
+    </div>
+
+    <div class="nome">
+      {{ usuarioService.usuario.name }}
+    </div>
+
+    <div class="login">
+      {{ usuarioService.usuario.login }}
+    </div>
+
+    <div class="infor">
+      <div class="social">
+        <mat-icon class="icon">people_alt</mat-icon>
+        {{ usuarioService.usuario.followers }} seguidores -
+        {{ usuarioService.usuario.following }} seguindo
+      </div>
+
+      <div class="social">
+        <mat-icon class="icon">location_on</mat-icon>
+        {{ usuarioService.usuario.location }} -
+        <mat-icon class="icon">star</mat-icon>
+        {{ usuarioService.totalEstrelas }}
+      </div>
+
+      <div class="bio">
+        {{ usuarioService.usuario.bio }}
+      </div>
+    </div>
+
+    <div class="repositorios-publicos" (click)="showRepos()">
+      {{ usuarioService.usuario.public_repos }} Repositórios Públicos
+      <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+    </div>
+
+    <div *ngIf="showReposBoolean" class="showRepos">
+      <div class="repos" *ngFor="let repo of repos | async">
+        <div class="repo">
+          <div class="repo-name">
+            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+          </div>
+          <div class="repo-description">{{ repo.description }}</div>
+          <div class="repo-count">
+            <div>
+              {{ repo.forks_count }} <i class="fas fa-code-branch"></i>
+            </div>
+            <div>{{ repo.stargazers_count }} <i class="fas fa-star"></i></div>
+            <div>
+              {{ repo.language }}
+              <i class="fas fa-circle {{ repo.language }}"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contatos">
+      <div>
+        <a
+          href="https://github.com/{{ usuarioService.usuario.login }}"
+          target="_blank"
+          ><i class="fab fa-github"></i>{{ usuarioService.usuario.login }}</a
+        >
+      </div>
+      <div *ngIf="usuarioService.usuario.twitter_username != null">
+        <a
+          href="https://twitter.com/{{
+            usuarioService.usuario.twitter_username
+          }}"
+          target="_blank"
+          ><i class="fab fa-twitter"></i
+          >{{ usuarioService.usuario.twitter_username }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
