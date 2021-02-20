@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './core/components/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -18,7 +17,6 @@ import { ButtonComponent } from './shared/components/button/button.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HomeComUsuarioComponent,
     HomeSemUsuarioComponent,
     ButtonComponent
