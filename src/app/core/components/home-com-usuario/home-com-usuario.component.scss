@@ -222,6 +222,25 @@
   color: #09142c;
 }
 
+.div-pagination {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.my-pagination ::ng-deep .ngx-pagination ul {
+  padding: 0;
+  margin: 0;
+}
+
+.my-pagination ::ng-deep .ngx-pagination li {
+  font-weight: bold;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #b78fc4;
+  border-radius: 5px;
+}
 
 .ABAP { color: #E8274B; }
 .ActionScript { color: #882B0F; }

@@ -11,9 +11,12 @@ import { UsuarioService } from '../../services/usuario.service';
 export class HomeComUsuarioComponent implements OnInit {
 
   repos: Observable<Repositorio[]> = empty();
+  listRepo: Repositorio[] = [];
   showReposBoolean: boolean = false;
 
   voices: SpeechSynthesisVoice[] = [];
+
+  public paginaAtual = 1;
 
   constructor(public usuarioService: UsuarioService) { }
 
@@ -24,6 +27,9 @@ export class HomeComUsuarioComponent implements OnInit {
   showRepos() {
     this.showReposBoolean = !this.showReposBoolean;
     this.repos = this.usuarioService.getRepos(this.usuarioService.usuario.login)
+    this.repos.subscribe((repos) => {
+      this.listRepo = repos;
+    });
   }
 
   getVoices() {
