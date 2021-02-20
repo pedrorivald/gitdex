@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { empty, Observable } from 'rxjs';
 import { Repositorio } from 'src/app/shared/models/repositorio';
 import { UsuarioService } from '../../services/usuario.service';
@@ -18,10 +19,24 @@ export class HomeComUsuarioComponent implements OnInit {
 
   public paginaAtual = 1;
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.getVoices();
+  }
+
+  navigateBack() {
+    this.usuarioService.reset();
+    this.reset();
+    this.router.navigate(['']);
+  }
+
+  reset() {
+    this.repos = empty();
+    this.listRepo = [];
+    this.showReposBoolean = false;
+    this.voices = [];
+    this.paginaAtual = 1;
   }
 
   showRepos() {

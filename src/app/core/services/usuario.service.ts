@@ -4,6 +4,7 @@ import { Repositorio } from 'src/app/shared/models/repositorio';
 import { Usuario } from 'src/app/shared/models/usuario';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -19,10 +20,7 @@ export class UsuarioService {
   public repositorios: Repositorio[] = [];
   public clicouEnterBoolean: boolean = true;
 
-  reposPerPage: number = 10;
-  reposPage: number = 1;
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     // this.usuario.login = '';
     this.repositorios.push({
       id: 0,
@@ -120,13 +118,24 @@ export class UsuarioService {
     });
   }
 
+  reset() {
+    this.totalEstrelas = 0;
+    this.usuario = {
+      login: '',
+    };
+    this.repositorios = [];
+    this.clicouEnterBoolean = false;
+  }
+
   getUser(name: string) {
     this.http
       .get<Usuario>(`${this.API}users/${name}`)
       .pipe(take(1))
       .subscribe((dados: Usuario) => {
         this.usuario = dados;
-        console.log(dados);
+        if(this.existeUsuario()) {
+          this.router.navigate(['/user']);
+        }
       });
   }
 
