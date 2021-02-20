@@ -1,3 +1,7 @@
+* {
+  color: #333;
+}
+
 .back {
   position: absolute;
   top: 15px;
@@ -259,6 +263,10 @@
 
 .my-pagination ::ng-deep .ngx-pagination li {
   font-weight: bold;
+}
+
+.my-pagination ::ng-deep .ngx-pagination li span{
+  color: #333;
 }
 
 .my-pagination ::ng-deep .ngx-pagination .current {
