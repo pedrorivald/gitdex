@@ -23,6 +23,9 @@ export class HomeComUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.getVoices();
+    if(!this.usuarioService.existeUsuario()) {
+      this.navigateBack();
+    }
   }
 
   navigateBack() {
