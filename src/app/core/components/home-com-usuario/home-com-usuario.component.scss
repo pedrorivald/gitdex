@@ -70,6 +70,27 @@
   padding-bottom: 10px;
 }
 
+.voice {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.voice div {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.voice div mat-icon {
+  color: #09142c;
+  font-size: 2rem;
+}
+
+.voice div mat-icon:hover {
+  color: #345292;
+}
+
 .social {
   display: flex;
   justify-content: center;

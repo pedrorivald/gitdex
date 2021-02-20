@@ -2,19 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Repositorio } from 'src/app/shared/models/repositorio';
 import { Usuario } from 'src/app/shared/models/usuario';
-import { take } from 'rxjs/operators'
+import { take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
 
+  private readonly API = environment.API;
+
   public totalEstrelas: number = 0;
   public usuario: Usuario = {
-    login: ''
+    login: '',
   };
   public repositorios: Repositorio[] = [];
   public clicouEnterBoolean: boolean = true;
+
+  reposPerPage: number = 10;
+  reposPage: number = 1;
 
   constructor(private http: HttpClient) {
     // this.usuario.login = '';
@@ -111,21 +117,25 @@ export class UsuarioService {
       open_issues: 0,
       watchers: 0,
       default_branch: '',
-    })
+    });
   }
 
-  getUser(name: string){
-    this.http.get<Usuario>(`https://api.github.com/users/${name}`)
-    .pipe(take(1))
-    .subscribe((dados: Usuario) => {
-      this.usuario = dados;
-      console.log(dados)
-    })
+  getUser(name: string) {
+    this.http
+      .get<Usuario>(`${this.API}users/${name}`)
+      .pipe(take(1))
+      .subscribe((dados: Usuario) => {
+        this.usuario = dados;
+        console.log(dados);
+      });
   }
 
-  getRepos(name: string){
-    return this.http.get<Repositorio[]>(`https://api.github.com/users/${name}/repos`)
-    .pipe(take(1))
+  getRepos(name: string) {
+    return this.http
+      .get<Repositorio[]>(
+        `${this.API}users/${name}/repos`
+      )
+      .pipe(take(1));
   }
 
   getStars(name: string) {
@@ -133,7 +143,7 @@ export class UsuarioService {
       dados.forEach((repositorio) => {
         this.totalEstrelas = repositorio.stargazers_count + this.totalEstrelas;
       });
-    })
+    });
   }
 
   existeUsuario() {

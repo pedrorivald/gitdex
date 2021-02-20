@@ -29,6 +29,12 @@
       <div class="bio">
         {{ usuarioService.usuario.bio }}
       </div>
+
+      <div class="voice">
+        <div (click)="speakBio(usuarioService.usuario.bio || 'sem bio')">
+          <mat-icon>volume_up</mat-icon>
+        </div>
+      </div>
     </div>
 
     <div class="repositorios-publicos" (click)="showRepos()">
