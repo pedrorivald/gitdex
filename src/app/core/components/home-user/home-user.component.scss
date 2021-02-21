@@ -1,4 +1,4 @@
-.home-com-perfil {
+.home-profile {
   padding-top: 120px;
   width: 100vw;
   max-width: 600px;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.com-usuario {
+.with-user {
   background-color: #fff;
   width: 100%;
   max-width: 600px;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.com-usuario-foto {
+.with-user-image {
   width: 150px;
   height: 150px;
   background: #666;
@@ -34,11 +34,11 @@
   overflow: hidden;
 }
 
-.com-usuario-foto img {
+.with-user-image img {
   width: 100%;
 }
 
-.nome {
+.name-user {
   padding-top: 10px;
   text-align: center;
   font-size: 1.3rem;
@@ -99,7 +99,7 @@
   font-size: 0.9rem;
 }
 
-.repositorios-publicos {
+.public-repositories {
   margin-top: 60px;
   border-radius: 10px;
   background-color: #7a2364;
@@ -117,7 +117,7 @@
   align-items: center;
 }
 
-.repositorios-publicos:hover {
+.public-repositories:hover {
   opacity: 0.8;
 }
 

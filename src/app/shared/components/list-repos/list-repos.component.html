@@ -3,7 +3,7 @@
     class="repos"
     *ngFor="
       let repo of reposService.listRepo
-        | paginate: { itemsPerPage: 5, currentPage: reposService.paginaAtual };
+        | paginate: { itemsPerPage: 5, currentPage: reposService.currentPage };
       let i = index
     "
   >
@@ -24,10 +24,10 @@
   </div>
 
   <div class="div-pagination">
-    <a href="/user/{{ usuarioService.usuario.login }}#repos">
+    <a href="/user/{{ userService.user.login }}#repos">
       <pagination-controls
         class="my-pagination"
-        (pageChange)="reposService.paginaAtual = $event"
+        (pageChange)="reposService.currentPage = $event"
         [maxSize]="3"
         previousLabel=""
         nextLabel=""

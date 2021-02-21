@@ -1,19 +1,19 @@
-<div class="contatos">
+<div class="contacts">
   <div>
     <a
-      href="https://github.com/{{ usuarioService.usuario.login }}"
+      href="https://github.com/{{ userService.user.login }}"
       target="_blank"
-      ><i class="fab fa-github"></i>{{ usuarioService.usuario.login }}</a
+      ><i class="fab fa-github"></i>{{ userService.user.login }}</a
     >
   </div>
-  <div *ngIf="usuarioService.usuario.twitter_username != null">
+  <div *ngIf="userService.user.twitter_username != null">
     <a
       href="https://twitter.com/{{
-        usuarioService.usuario.twitter_username
+        userService.user.twitter_username
       }}"
       target="_blank"
       ><i class="fab fa-twitter"></i
-      >{{ usuarioService.usuario.twitter_username }}</a
+      >{{ userService.user.twitter_username }}</a
     >
   </div>
 </div>

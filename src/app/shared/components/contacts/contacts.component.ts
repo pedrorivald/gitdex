@@ -1,4 +1,4 @@
-import { UsuarioService } from './../../../core/services/user.service';
+import { UserService } from './../../../core/services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }

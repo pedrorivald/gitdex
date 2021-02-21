@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Repositorio } from 'src/app/shared/models/repo';
-import { Usuario } from 'src/app/shared/models/user';
+import { Repository } from 'src/app/shared/models/repo';
+import { user } from 'src/app/shared/models/user';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -13,56 +13,56 @@ export class UserService {
 
   private readonly API = environment.API;
 
-  public totalEstrelas: number = 0;
-  public usuario: Usuario = {
+  public totalStars: number = 0;
+  public user: user = {
     login: '',
   };
-  public repositorios: Repositorio[] = [];
-  public clicouEnterBoolean: boolean = true;
+  public repositories: Repository[] = [];
+  public onEnterBoolean: boolean = true;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   reset() {
-    this.totalEstrelas = 0;
-    this.usuario = {
+    this.totalStars = 0;
+    this.user = {
       login: '',
     };
-    this.repositorios = [];
-    this.clicouEnterBoolean = false;
+    this.repositories = [];
+    this.onEnterBoolean = false;
   }
 
   getUser(name: string) {
     return this.http
-      .get<Usuario>(`${this.API}users/${name}`)
+      .get<user>(`${this.API}users/${name}`)
       .pipe(take(1))
   }
 
   getRepos(name: string) {
     return this.http
-      .get<Repositorio[]>(
+      .get<Repository[]>(
         `${this.API}users/${name}/repos`
       )
       .pipe(take(1));
   }
 
   getStars(name: string) {
-    this.getRepos(name).subscribe((dados: Repositorio[]) => {
-      dados.forEach((repositorio) => {
-        this.totalEstrelas = repositorio.stargazers_count + this.totalEstrelas;
+    this.getRepos(name).subscribe((data: Repository[]) => {
+      data.forEach((Repository) => {
+        this.totalStars = Repository.stargazers_count + this.totalStars;
       });
     });
   }
 
-  existeUsuario() {
-    return this.usuario.login != '' ? true : false;
+  existUser() {
+    return this.user.login != '' ? true : false;
   }
 
-  existeRepositorio() {
-    return this.repositorios[0].owner.login != '' ? true : false;
+  existRepository() {
+    return this.repositories[0].owner.login != '' ? true : false;
   }
 
-  clicouEnter() {
-    this.clicouEnterBoolean = !this.clicouEnterBoolean;
-    return this.clicouEnterBoolean;
+  onEnter() {
+    this.onEnterBoolean = !this.onEnterBoolean;
+    return this.onEnterBoolean;
   }
 }

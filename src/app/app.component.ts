@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioService } from './core/services/user.service';
+import { UserService } from './core/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +13,14 @@ export class AppComponent {
     user: new FormControl()
   });
 
-  constructor(public usuarioService: UsuarioService, private router: Router) {}
+  constructor(public userService: UserService, private router: Router) {}
 
   ngOnInit() {
-    this.usuarioService.clicouEnter();
+    this.userService.onEnter();
   }
 
   onEnter() {
-    this.usuarioService.clicouEnter();
-    // this.usuarioService.getUser(this.myForm.value.user);
-    // this.usuarioService.getStars(this.myForm.value.user)
+    this.userService.onEnter();
     this.router.navigate(['/user', this.myForm.value.user]);
   }
 }

@@ -1,21 +1,21 @@
 <app-github-corner></app-github-corner>
 
 <div class="home">
-  <div class="home-usuario">
+  <div class="home-user">
     <div class="title">
       <div>Git</div>
       <div class="dex">Dex</div>
     </div>
 
-    <div class="description" *ngIf="!usuarioService.existeUsuario()">
+    <div class="description" *ngIf="!userService.existUser()">
       <div>Quem é</div>
-      <div class="programador">esse programador?</div>
+      <div class="programmer">esse programador?</div>
     </div>
 
     <div
       [formGroup]="myForm"
-      class="usuario-input"
-      *ngIf="!usuarioService.existeUsuario()"
+      class="user-input"
+      *ngIf="!userService.existUser()"
     >
       <input
         type="text"
@@ -27,7 +27,7 @@
       />
     </div>
 
-    <div class="barra" *ngIf="!usuarioService.existeUsuario()">
+    <div class="bar" *ngIf="!userService.existUser()">
       <div></div>
     </div>
   </div>

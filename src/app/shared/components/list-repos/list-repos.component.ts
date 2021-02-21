@@ -1,5 +1,5 @@
 import { ReposService } from './../../../core/services/repos.service';
-import { UsuarioService } from './../../../core/services/user.service';
+import { UserService } from './../../../core/services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListReposComponent implements OnInit {
 
-  constructor(public usuarioService: UsuarioService, public reposService: ReposService) { }
+  constructor(public userService: UserService, public reposService: ReposService) { }
 
   ngOnInit(): void {
   }

@@ -2,8 +2,8 @@ import { ReposService } from '../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Usuario } from 'src/app/shared/models/user';
-import { UsuarioService } from '../../services/user.service';
+import { user } from 'src/app/shared/models/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home-user',
@@ -16,7 +16,7 @@ export class HomeUserComponent implements OnInit {
   subscription!: Subscription;
 
   constructor(
-    public usuarioService: UsuarioService,
+    public userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
     public reposService: ReposService
@@ -34,21 +34,21 @@ export class HomeUserComponent implements OnInit {
   getUser() {
     this.subscription = this.route.params.subscribe((params: any) => {
       this.loginUser = params['login'] || '';
-      this.usuarioService
+      this.userService
         .getUser(this.loginUser)
-        .subscribe((dados: Usuario) => {
-          this.usuarioService.usuario = dados;
-          if(!this.usuarioService.existeUsuario()) {
+        .subscribe((data: user) => {
+          this.userService.user = data;
+          if(!this.userService.existUser()) {
             this.navigateBack();
           }else {
-            this.usuarioService.getStars(this.usuarioService.usuario.login);
+            this.userService.getStars(this.userService.user.login);
           }
         });
     });
   }
 
   navigateBack() {
-    this.usuarioService.reset();
+    this.userService.reset();
     this.reposService.reset();
     this.reset();
     this.router.navigate(['']);

@@ -1,4 +1,4 @@
-export interface Repositorio {
+export interface Repository {
     id: number
     node_id: string
     name: string

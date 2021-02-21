@@ -1,4 +1,4 @@
-.home-sem-perfil {
+.home-no-profile {
   width: 100vw;
   z-index: 100;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.sem-usuario {
+.no-user {
   background-color: #fff;
   width: 100%;
   max-width: 600px;
@@ -19,7 +19,7 @@
   align-items: center;
 }
 
-.sem-usuario-foto {
+.no-user-image {
   width: 150px;
   height: 150px;
   background: #666;
@@ -32,7 +32,7 @@
   overflow: hidden;
 }
 
-.carregar {
+.loading {
   animation: rotacionar 3s infinite linear;
 }
 
@@ -40,12 +40,12 @@
   100% {transform: rotate(360deg);}
 }
 
-.sem-usuario-foto img {
+.no-user-image img {
   padding-top: 28px;
   width: 120px;
 }
 
-.circulos {
+.circles {
   padding-top: 15px;
   width: 100px;
   height: 10px;
@@ -53,7 +53,7 @@
   justify-content: space-around;
 }
 
-.circulos div {
+.circles div {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -61,31 +61,31 @@
 }
 
 @media (max-height: 470px) {
-  .home-sem-perfil {
+  .home-no-profile {
     display: none;
   }
 }
 
 @media (min-height: 470px) {
-  .sem-usuario{
+  .no-user{
     height: 200px;
   }
 }
 
 @media (min-height: 570px) {
-  .sem-usuario{
+  .no-user{
     height: 250px;
   }
 }
 
 @media (min-height: 670px) {
-  .sem-usuario{
+  .no-user{
     height: 300px;
   }
 }
 
 @media (min-height: 770px) {
-  .sem-usuario{
+  .no-user{
     height: 350px;
   }
 }

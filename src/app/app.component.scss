@@ -7,12 +7,6 @@
   justify-content: space-between;
 }
 
-.sobre {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
 .title {
   padding-top: 40px;
   display: flex;
@@ -43,15 +37,15 @@
   font-weight: 500;
 }
 
-.description .programador {
+.description .programmer {
   padding-top: 10px;
 }
 
-.usuario-input {
+.user-input {
   padding-top: 30px;
 }
 
-.usuario-input input {
+.user-input input {
   height: 30px;
   font-size: 1.1rem;
   text-align: center;
@@ -63,17 +57,17 @@
   color: #333;
 }
 
-.usuario-input input::placeholder {
+.user-input input::placeholder {
   text-align: center;
   font-size: 1.1rem;
 }
 
-.barra {
+.bar {
   display: flex;
   justify-content: center;
 }
 
-.barra div {
+.bar div {
   position: absolute;
   z-index: -1;
   width: 5px;
@@ -88,7 +82,7 @@
 }
 
 @media (max-height: 470px) {
-  .barra {
+  .bar {
     display: none;
   }
 }

@@ -1,52 +1,52 @@
 <app-button-back
   (click)="navigateBack()"
-  *ngIf="usuarioService.existeUsuario()"
+  *ngIf="userService.existUser()"
 ></app-button-back>
 
 <div
-  class="home-com-perfil"
-  *ngIf="usuarioService.existeUsuario(); else noUser"
+  class="home-profile"
+  *ngIf="userService.existUser(); else noUser"
 >
-  <div class="com-usuario">
-    <div class="com-usuario-foto">
-      <img src="{{ usuarioService.usuario.avatar_url }}" alt="Usuário" />
+  <div class="with-user">
+    <div class="with-user-image">
+      <img src="{{ userService.user.avatar_url }}" alt="Usuário" />
     </div>
 
-    <div class="nome">
-      {{ usuarioService.usuario.name }}
+    <div class="name-user">
+      {{ userService.user.name }}
     </div>
 
     <div class="login">
-      {{ usuarioService.usuario.login }}
+      {{ userService.user.login }}
     </div>
 
     <div class="infor">
       <div class="social">
         <mat-icon class="icon">people_alt</mat-icon>
-        {{ usuarioService.usuario.followers }} seguidores -
-        {{ usuarioService.usuario.following }} seguindo
+        {{ userService.user.followers }} seguidores -
+        {{ userService.user.following }} seguindo
       </div>
 
       <div class="social">
         <mat-icon class="icon">location_on</mat-icon>
-        {{ usuarioService.usuario.location }} -
+        {{ userService.user.location }} -
         <mat-icon class="icon">star</mat-icon>
-        {{ usuarioService.totalEstrelas }}
+        {{ userService.totalStars }}
       </div>
 
       <div class="bio">
-        {{ usuarioService.usuario.bio }}
+        {{ userService.user.bio }}
       </div>
 
       <div class="voice">
-        <div (click)="speakBio(usuarioService.usuario.bio || 'sem bio')">
+        <div (click)="speakBio(userService.user.bio || 'sem bio')">
           <mat-icon>volume_up</mat-icon>
         </div>
       </div>
     </div>
 
-    <div class="repositorios-publicos" (click)="reposService.showRepos()" id="repos">
-      {{ usuarioService.usuario.public_repos }} Repositórios Públicos
+    <div class="public-repositories" (click)="reposService.showRepos()" id="repos">
+      {{ userService.user.public_repos }} Repositórios Públicos
       <mat-icon class="icon">keyboard_arrow_down</mat-icon>
     </div>
 

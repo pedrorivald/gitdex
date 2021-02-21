@@ -1,8 +1,8 @@
-<div class="home-sem-perfil">
-  <div class="sem-usuario">
+<div class="home-no-profile">
+  <div class="no-user">
     <div
-      class="sem-usuario-foto"
-      [ngClass]="usuarioService.clicouEnterBoolean ? 'carregar' : ''"
+      class="no-user-image"
+      [ngClass]="userService.onEnterBoolean ? 'loading' : ''"
     >
       <img
         src="./../../../../assets/images/question.svg"
@@ -10,7 +10,7 @@
       />
     </div>
 
-    <div class="circulos">
+    <div class="circles">
       <div></div>
       <div></div>
       <div></div>
