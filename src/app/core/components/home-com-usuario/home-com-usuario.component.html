@@ -51,26 +51,7 @@
     </div>
 
     <app-list-repos *ngIf="reposService.showReposBoolean"></app-list-repos>
-
-    <div class="contatos">
-      <div>
-        <a
-          href="https://github.com/{{ usuarioService.usuario.login }}"
-          target="_blank"
-          ><i class="fab fa-github"></i>{{ usuarioService.usuario.login }}</a
-        >
-      </div>
-      <div *ngIf="usuarioService.usuario.twitter_username != null">
-        <a
-          href="https://twitter.com/{{
-            usuarioService.usuario.twitter_username
-          }}"
-          target="_blank"
-          ><i class="fab fa-twitter"></i
-          >{{ usuarioService.usuario.twitter_username }}</a
-        >
-      </div>
-    </div>
+    <app-contacts></app-contacts>
   </div>
 </div>
 
