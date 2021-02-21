@@ -16,6 +16,7 @@ import { ButtonComponent } from './shared/components/button/button.component';
 import { ButtonBackComponent } from './shared/components/button-back/button-back.component';
 import { ListReposComponent } from './shared/components/list-repos/list-repos.component';
 import { ContactsComponent } from './shared/components/contacts/contacts.component';
+import { GithubCornerComponent } from './shared/components/github-corner/github-corner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactsComponent } from './shared/components/contacts/contacts.compone
     ButtonComponent,
     ButtonBackComponent,
     ListReposComponent,
-    ContactsComponent
+    ContactsComponent,
+    GithubCornerComponent
   ],
   imports: [
     BrowserModule,
