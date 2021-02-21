@@ -13,13 +13,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComUsuarioComponent } from './core/components/home-com-usuario/home-com-usuario.component';
 import { HomeSemUsuarioComponent } from './core/components/home-sem-usuario/home-sem-usuario.component';
 import { ButtonComponent } from './shared/components/button/button.component';
+import { ButtonBackComponent } from './shared/components/button-back/button-back.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComUsuarioComponent,
     HomeSemUsuarioComponent,
-    ButtonComponent
+    ButtonComponent,
+    ButtonBackComponent
   ],
   imports: [
     BrowserModule,

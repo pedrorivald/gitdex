@@ -1,10 +1,12 @@
-<div class="back">
-  <button aria-label="Voltar" class="btn" (click)="navigateBack()">
-    <mat-icon>west</mat-icon>
-  </button>
-</div>
+<app-button-back
+  (click)="navigateBack()"
+  *ngIf="usuarioService.existeUsuario()"
+></app-button-back>
 
-<div class="home-com-perfil" *ngIf="usuarioService.existeUsuario(); else noUser">
+<div
+  class="home-com-perfil"
+  *ngIf="usuarioService.existeUsuario(); else noUser"
+>
   <div class="com-usuario">
     <div class="com-usuario-foto">
       <img src="{{ usuarioService.usuario.avatar_url }}" alt="Usuário" />
@@ -81,7 +83,7 @@
             [maxSize]="3"
             previousLabel=""
             nextLabel=""
-            [autoHide] = "true"
+            [autoHide]="true"
           ></pagination-controls>
         </a>
       </div>

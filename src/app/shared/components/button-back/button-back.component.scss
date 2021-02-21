@@ -1,0 +1,20 @@
+.back {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn mat-icon {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.btn mat-icon:hover {
+  color: #1b3268;
+}
