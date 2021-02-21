@@ -1,17 +1,16 @@
-import { ReposService } from './../../services/repos.service';
+import { ReposService } from '../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { empty, Observable, Subscription } from 'rxjs';
-import { Repositorio } from 'src/app/shared/models/repositorio';
-import { Usuario } from 'src/app/shared/models/usuario';
-import { UsuarioService } from '../../services/usuario.service';
+import { Subscription } from 'rxjs';
+import { Usuario } from 'src/app/shared/models/user';
+import { UsuarioService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-home-com-usuario',
-  templateUrl: './home-com-usuario.component.html',
-  styleUrls: ['./home-com-usuario.component.scss'],
+  selector: 'app-home-user',
+  templateUrl: './home-user.component.html',
+  styleUrls: ['./home-user.component.scss'],
 })
-export class HomeComUsuarioComponent implements OnInit {
+export class HomeUserComponent implements OnInit {
   voices: SpeechSynthesisVoice[] = [];
   loginUser: string = '';
   subscription!: Subscription;

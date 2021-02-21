@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Repositorio } from 'src/app/shared/models/repositorio';
-import { Usuario } from 'src/app/shared/models/usuario';
+import { Repositorio } from 'src/app/shared/models/repo';
+import { Usuario } from 'src/app/shared/models/user';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioService {
+export class UserService {
 
   private readonly API = environment.API;
 

@@ -1,7 +1,7 @@
-import { UsuarioService } from './usuario.service';
+import { UsuarioService } from './user.service';
 import { Injectable } from '@angular/core';
 import { empty, Observable } from 'rxjs';
-import { Repositorio } from 'src/app/shared/models/repositorio';
+import { Repositorio } from 'src/app/shared/models/repo';
 
 @Injectable({
   providedIn: 'root'

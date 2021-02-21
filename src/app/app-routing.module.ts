@@ -1,11 +1,11 @@
-import { HomeComUsuarioComponent } from './core/components/home-com-usuario/home-com-usuario.component';
-import { HomeSemUsuarioComponent } from './core/components/home-sem-usuario/home-sem-usuario.component';
+import { HomeUserComponent } from './core/components/home-user/home-user.component';
+import { HomeNoUserComponent } from './core/components/home-no-user/home-no-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'user/:login', component: HomeComUsuarioComponent },
-  { path: '', component: HomeSemUsuarioComponent }
+  { path: 'user/:login', component: HomeUserComponent },
+  { path: '', component: HomeNoUserComponent }
 ];
 
 @NgModule({

@@ -10,8 +10,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
-import { HomeComUsuarioComponent } from './core/components/home-com-usuario/home-com-usuario.component';
-import { HomeSemUsuarioComponent } from './core/components/home-sem-usuario/home-sem-usuario.component';
+import { HomeUserComponent } from './core/components/home-user/home-user.component';
+import { HomeNoUserComponent } from './core/components/home-no-user/home-no-user.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { ButtonBackComponent } from './shared/components/button-back/button-back.component';
 import { ListReposComponent } from './shared/components/list-repos/list-repos.component';
@@ -21,8 +21,8 @@ import { GithubCornerComponent } from './shared/components/github-corner/github-
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComUsuarioComponent,
-    HomeSemUsuarioComponent,
+    HomeUserComponent,
+    HomeNoUserComponent,
     ButtonComponent,
     ButtonBackComponent,
     ListReposComponent,
