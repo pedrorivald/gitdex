@@ -14,6 +14,7 @@ import { HomeComUsuarioComponent } from './core/components/home-com-usuario/home
 import { HomeSemUsuarioComponent } from './core/components/home-sem-usuario/home-sem-usuario.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { ButtonBackComponent } from './shared/components/button-back/button-back.component';
+import { ListReposComponent } from './shared/components/list-repos/list-repos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ButtonBackComponent } from './shared/components/button-back/button-back
     HomeComUsuarioComponent,
     HomeSemUsuarioComponent,
     ButtonComponent,
-    ButtonBackComponent
+    ButtonBackComponent,
+    ListReposComponent
   ],
   imports: [
     BrowserModule,

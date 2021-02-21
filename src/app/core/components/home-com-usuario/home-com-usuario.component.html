@@ -45,49 +45,12 @@
       </div>
     </div>
 
-    <div class="repositorios-publicos" (click)="showRepos()" id="repos">
+    <div class="repositorios-publicos" (click)="reposService.showRepos()" id="repos">
       {{ usuarioService.usuario.public_repos }} Repositórios Públicos
       <mat-icon class="icon">keyboard_arrow_down</mat-icon>
     </div>
 
-    <div *ngIf="showReposBoolean" class="showRepos">
-      <div
-        class="repos"
-        *ngFor="
-          let repo of listRepo
-            | paginate: { itemsPerPage: 5, currentPage: paginaAtual };
-          let i = index
-        "
-      >
-        <div class="repo">
-          <div class="repo-name">
-            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
-          </div>
-          <div class="repo-description">{{ repo.description }}</div>
-          <div class="repo-count">
-            <div>{{ repo.forks_count }} <i class="fas fa-code-branch"></i></div>
-            <div>{{ repo.stargazers_count }} <i class="fas fa-star"></i></div>
-            <div>
-              {{ repo.language }}
-              <i class="fas fa-circle {{ repo.language }}"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="div-pagination">
-        <a href="/user/{{ usuarioService.usuario.login }}#repos">
-          <pagination-controls
-            class="my-pagination"
-            (pageChange)="paginaAtual = $event"
-            [maxSize]="3"
-            previousLabel=""
-            nextLabel=""
-            [autoHide]="true"
-          ></pagination-controls>
-        </a>
-      </div>
-    </div>
+    <app-list-repos *ngIf="reposService.showReposBoolean"></app-list-repos>
 
     <div class="contatos">
       <div>

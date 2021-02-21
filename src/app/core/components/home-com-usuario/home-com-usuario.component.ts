@@ -1,3 +1,4 @@
+import { ReposService } from './../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { empty, Observable, Subscription } from 'rxjs';
@@ -11,20 +12,15 @@ import { UsuarioService } from '../../services/usuario.service';
   styleUrls: ['./home-com-usuario.component.scss'],
 })
 export class HomeComUsuarioComponent implements OnInit {
-  repos: Observable<Repositorio[]> = empty();
-  listRepo: Repositorio[] = [];
-  showReposBoolean: boolean = false;
   voices: SpeechSynthesisVoice[] = [];
   loginUser: string = '';
-
   subscription!: Subscription;
-
-  public paginaAtual = 1;
 
   constructor(
     public usuarioService: UsuarioService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public reposService: ReposService
   ) {}
 
   ngOnInit(): void {
@@ -54,26 +50,13 @@ export class HomeComUsuarioComponent implements OnInit {
 
   navigateBack() {
     this.usuarioService.reset();
+    this.reposService.reset();
     this.reset();
     this.router.navigate(['']);
   }
 
   reset() {
-    this.repos = empty();
-    this.listRepo = [];
-    this.showReposBoolean = false;
     this.voices = [];
-    this.paginaAtual = 1;
-  }
-
-  showRepos() {
-    this.showReposBoolean = !this.showReposBoolean;
-    this.repos = this.usuarioService.getRepos(
-      this.usuarioService.usuario.login
-    );
-    this.repos.subscribe((repos) => {
-      this.listRepo = repos;
-    });
   }
 
   getVoices() {

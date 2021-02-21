@@ -121,73 +121,6 @@
   opacity: 0.8;
 }
 
-.showRepos {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.repos {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 85%;
-  height: 150px;
-  padding: 10px;
-  margin-top: 25px;
-  border-radius: 20px;
-}
-
-.repo {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.repo-name {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.repo-name a {
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #09142c;
-  text-align: center;
-}
-
-.repo-name a:hover {
-  color: #345292;
-}
-
-.repo-description {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
-  text-align: center;
-  color: #333;
-}
-
-.repo-count {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.repo-count div {
-  font-size: 1rem;
-  background-color: #d8d8d8;
-  border-radius: 7px;
-  padding: 4px;
-  margin: 5px;
-  font-weight: bold;
-  color: #333;
-}
-
 .contatos {
   margin-top: 60px;
   padding: 5px;
@@ -219,30 +152,6 @@
 
 .social .icon{
   color: #09142c;
-}
-
-.div-pagination {
-  width: 80%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.my-pagination ::ng-deep .ngx-pagination ul {
-  padding: 0;
-  margin: 0;
-}
-
-.my-pagination ::ng-deep .ngx-pagination li {
-  font-weight: bold;
-}
-
-.my-pagination ::ng-deep .ngx-pagination li span{
-  color: #333;
-}
-
-.my-pagination ::ng-deep .ngx-pagination .current {
-  background: #b78fc4;
-  border-radius: 5px;
 }
 
 .ABAP { color: #E8274B; }
