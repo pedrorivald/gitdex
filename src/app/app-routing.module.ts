@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: HomeSemUsuarioComponent },
-  { path: 'user', component: HomeComUsuarioComponent }
+  { path: 'user/:login', component: HomeComUsuarioComponent },
+  { path: '', component: HomeSemUsuarioComponent }
 ];
 
 @NgModule({

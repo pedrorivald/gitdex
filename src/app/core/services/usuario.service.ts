@@ -32,15 +32,9 @@ export class UsuarioService {
   }
 
   getUser(name: string) {
-    this.http
+    return this.http
       .get<Usuario>(`${this.API}users/${name}`)
       .pipe(take(1))
-      .subscribe((dados: Usuario) => {
-        this.usuario = dados;
-        if(this.existeUsuario()) {
-          this.router.navigate(['/user']);
-        }
-      });
   }
 
   getRepos(name: string) {

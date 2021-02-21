@@ -1,31 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { empty, Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { empty, Observable, Subscription } from 'rxjs';
 import { Repositorio } from 'src/app/shared/models/repositorio';
+import { Usuario } from 'src/app/shared/models/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-home-com-usuario',
   templateUrl: './home-com-usuario.component.html',
-  styleUrls: ['./home-com-usuario.component.scss']
+  styleUrls: ['./home-com-usuario.component.scss'],
 })
 export class HomeComUsuarioComponent implements OnInit {
-
   repos: Observable<Repositorio[]> = empty();
   listRepo: Repositorio[] = [];
   showReposBoolean: boolean = false;
-
   voices: SpeechSynthesisVoice[] = [];
+  loginUser: string = '';
+
+  subscription!: Subscription;
 
   public paginaAtual = 1;
 
-  constructor(public usuarioService: UsuarioService, private router: Router) { }
+  constructor(
+    public usuarioService: UsuarioService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.getVoices();
-    if(!this.usuarioService.existeUsuario()) {
-      this.navigateBack();
-    }
+    this.getUser();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  getUser() {
+    this.subscription = this.route.params.subscribe((params: any) => {
+      this.loginUser = params['login'] || '';
+      this.usuarioService
+        .getUser(this.loginUser)
+        .subscribe((dados: Usuario) => {
+          this.usuarioService.usuario = dados;
+          if(!this.usuarioService.existeUsuario()) {
+            this.navigateBack();
+          }else {
+            this.usuarioService.getStars(this.usuarioService.usuario.login);
+          }
+        });
+    });
   }
 
   navigateBack() {
@@ -44,7 +68,9 @@ export class HomeComUsuarioComponent implements OnInit {
 
   showRepos() {
     this.showReposBoolean = !this.showReposBoolean;
-    this.repos = this.usuarioService.getRepos(this.usuarioService.usuario.login)
+    this.repos = this.usuarioService.getRepos(
+      this.usuarioService.usuario.login
+    );
     this.repos.subscribe((repos) => {
       this.listRepo = repos;
     });
@@ -69,5 +95,4 @@ export class HomeComUsuarioComponent implements OnInit {
     utterance.rate = 1;
     window.speechSynthesis.speak(utterance);
   }
-
 }

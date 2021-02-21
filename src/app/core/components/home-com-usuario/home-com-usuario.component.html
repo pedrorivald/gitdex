@@ -4,7 +4,7 @@
   </button>
 </div>
 
-<div class="home-com-perfil">
+<div class="home-com-perfil" *ngIf="usuarioService.existeUsuario(); else noUser">
   <div class="com-usuario">
     <div class="com-usuario-foto">
       <img src="{{ usuarioService.usuario.avatar_url }}" alt="Usuário" />
@@ -74,7 +74,7 @@
       </div>
 
       <div class="div-pagination">
-        <a href="/user#repos">
+        <a href="/user/{{ usuarioService.usuario.login }}#repos">
           <pagination-controls
             class="my-pagination"
             (pageChange)="paginaAtual = $event"
@@ -108,3 +108,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #noUser>
+  <app-home-sem-usuario></app-home-sem-usuario>
+</ng-template>
