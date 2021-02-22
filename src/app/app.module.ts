@@ -6,17 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { QRCodeModule } from 'angularx-qrcode';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
-import { HomeUserComponent } from './core/components/home-user/home-user.component';
+import { HomeUserComponent, QrcodeDialog } from './core/components/home-user/home-user.component';
 import { HomeNoUserComponent } from './core/components/home-no-user/home-no-user.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { ButtonBackComponent } from './shared/components/button-back/button-back.component';
 import { ListReposComponent } from './shared/components/list-repos/list-repos.component';
 import { ContactsComponent } from './shared/components/contacts/contacts.component';
 import { GithubCornerComponent } from './shared/components/github-corner/github-corner.component';
+import { QrcodeComponent } from './shared/components/qrcode/qrcode.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,9 @@ import { GithubCornerComponent } from './shared/components/github-corner/github-
     ButtonBackComponent,
     ListReposComponent,
     ContactsComponent,
-    GithubCornerComponent
+    GithubCornerComponent,
+    QrcodeComponent,
+    QrcodeDialog
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,11 @@ import { GithubCornerComponent } from './shared/components/github-corner/github-
     HttpClientModule,
     MatIconModule,
     MatButtonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    QRCodeModule,
+    MatDialogModule,
+    ClipboardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

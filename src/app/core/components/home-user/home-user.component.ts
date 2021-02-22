@@ -4,6 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { user } from 'src/app/shared/models/user';
 import { UserService } from '../../services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home-user',
@@ -11,15 +17,21 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./home-user.component.scss'],
 })
 export class HomeUserComponent implements OnInit {
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   voices: SpeechSynthesisVoice[] = [];
   loginUser: string = '';
   subscription!: Subscription;
+
+  public link = ``;
 
   constructor(
     public userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    public reposService: ReposService
+    public reposService: ReposService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +41,19 @@ export class HomeUserComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  openQRCode() {
+    this.dialog.open(QrcodeDialog);
+  }
+
+  copyLink() {
+    this._snackBar.open('Link Copiado!', 'X', {
+      duration: 1500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['custom-class']
+    });
   }
 
   getUser() {
@@ -42,6 +67,7 @@ export class HomeUserComponent implements OnInit {
             this.navigateBack();
           }else {
             this.userService.getStars(this.userService.user.login);
+            this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`
           }
         });
     });
@@ -78,3 +104,9 @@ export class HomeUserComponent implements OnInit {
     window.speechSynthesis.speak(utterance);
   }
 }
+
+@Component({
+  selector: 'qrcode-dialog',
+  templateUrl: './qrcode.html',
+})
+export class QrcodeDialog{}

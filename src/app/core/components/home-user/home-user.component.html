@@ -20,6 +20,19 @@
       {{ userService.user.login }}
     </div>
 
+    <div class="share">
+      <div class="qrcode">
+        <button type="button" (click)="openQRCode()">
+          <mat-icon>qr_code_2</mat-icon>
+        </button>
+      </div>
+      <div class="link">
+        <button [cdkCopyToClipboard]="link" (click)="copyLink()">
+          <mat-icon>link</mat-icon>
+        </button>
+      </div>
+    </div>
+
     <div class="infor">
       <div class="social">
         <mat-icon class="icon">people_alt</mat-icon>

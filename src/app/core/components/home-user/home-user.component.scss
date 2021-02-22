@@ -52,6 +52,30 @@
   color: #666;
 }
 
+.share {
+  margin-top: 10px;
+  display: flex;
+}
+.share div {
+  padding: 0px 5px 0px 5px;
+}
+
+.share button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.qrcode mat-icon, .link mat-icon {
+  font-size: 2rem;
+  color: #09142c;
+}
+
+.qrcode mat-icon:hover, .link mat-icon:hover {
+  color: #005390;
+}
+
 .infor {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 85%;
@@ -128,6 +152,15 @@
 
 .social .icon{
   color: #09142c;
+}
+
+::ng-deep snack-bar-container.custom-class {
+  background: #09142c;
+}
+
+::ng-deep .custom-class .mat-simple-snackbar span{
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .ABAP { color: #E8274B; }
