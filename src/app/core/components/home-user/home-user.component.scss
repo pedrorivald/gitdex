@@ -99,18 +99,19 @@
   justify-content: center;
 }
 
-.voice div {
+.voice button {
   border: none;
   background: none;
+  outline: none;
   cursor: pointer;
 }
 
-.voice div mat-icon {
+.voice button mat-icon {
   color: #09142c;
   font-size: 2rem;
 }
 
-.voice div mat-icon:hover {
+.voice button mat-icon:hover {
   color: #345292;
 }
 
