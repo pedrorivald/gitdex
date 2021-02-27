@@ -100,7 +100,7 @@ export class HomeUserComponent implements OnInit {
     utterance.text = word;
     utterance.lang = 'pt-BR';
     utterance.voice = voice;
-    utterance.rate = 1;
+    utterance.rate = 1.2;
     window.speechSynthesis.speak(utterance);
   }
 }
