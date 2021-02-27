@@ -13,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { HomeUserComponent, QrcodeDialog } from './core/components/home-user/home-user.component';
 import { HomeNoUserComponent } from './core/components/home-no-user/home-no-user.component';
@@ -49,7 +50,8 @@ import { QrcodeComponent } from './shared/components/qrcode/qrcode.component';
     QRCodeModule,
     MatDialogModule,
     ClipboardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

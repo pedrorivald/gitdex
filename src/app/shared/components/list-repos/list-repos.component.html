@@ -1,28 +1,4 @@
 <div class="showRepos">
-  <div
-    class="repos"
-    *ngFor="
-      let repo of reposService.listRepo
-        | paginate: { itemsPerPage: 5, currentPage: reposService.currentPage };
-      let i = index
-    "
-  >
-    <div class="repo">
-      <div class="repo-name">
-        <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
-      </div>
-      <div class="repo-description">{{ repo.description }}</div>
-      <div class="repo-count">
-        <div>{{ repo.forks_count }} <i class="fas fa-code-branch"></i></div>
-        <div>{{ repo.stargazers_count }} <i class="fas fa-star"></i></div>
-        <div>
-          {{ repo.language }}
-          <i class="fas fa-circle {{ repo.language }}"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="div-pagination">
     <a href="/user/{{ userService.user.login }}#repos">
       <pagination-controls
@@ -35,4 +11,35 @@
       ></pagination-controls>
     </a>
   </div>
+
+  <mat-grid-list
+    [cols]="breakpoint"
+    rowHeight="2:1.5"
+    (window:resize)="onResize($event)"
+    class="repos"
+  >
+    <mat-grid-tile
+      *ngFor="
+        let repo of reposService.listRepo
+          | paginate
+            : { itemsPerPage: 6, currentPage: reposService.currentPage };
+        let i = index
+      "
+    >
+      <div class="repo">
+        <div class="repo-name">
+          <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+        </div>
+        <div class="repo-description">{{ repo.description }}</div>
+        <div class="repo-count">
+          <div>{{ repo.forks_count }} <i class="fas fa-code-branch"></i></div>
+          <div>{{ repo.stargazers_count }} <i class="fas fa-star"></i></div>
+          <div>
+            {{ repo.language }}
+            <i class="fas fa-circle {{ repo.language }}"></i>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

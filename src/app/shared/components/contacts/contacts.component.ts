@@ -1,3 +1,4 @@
+import { ReposService } from './../../../core/services/repos.service';
 import { UserService } from './../../../core/services/user.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, public reposService: ReposService) { }
 
   ngOnInit(): void {
   }

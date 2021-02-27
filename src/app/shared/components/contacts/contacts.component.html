@@ -1,4 +1,4 @@
-<div class="contacts">
+<div class="contacts" [ngClass]="reposService.showReposBoolean ? 'repos-active' : ''">
   <div>
     <a
       href="https://github.com/{{ userService.user.login }}"
