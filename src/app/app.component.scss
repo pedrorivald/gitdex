@@ -79,6 +79,15 @@
   width: 100%;
 }
 
+.configs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
 @media (max-height: 400px) {
   .title {
     display: none;

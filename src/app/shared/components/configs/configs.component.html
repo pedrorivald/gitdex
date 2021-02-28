@@ -1,0 +1,12 @@
+<button class="btn-settings" mat-icon-button [matMenuTriggerFor]="configs">
+  <mat-icon class="icon-settings">settings</mat-icon>
+</button>
+<mat-menu #configs="matMenu">
+  <div class="menu-btn">
+    <label class="switch">
+      <input type="checkbox" (click)="toggle()">
+      <span class="slider round"></span>
+    </label>
+    Modo Escuro
+  </div>
+</mat-menu>

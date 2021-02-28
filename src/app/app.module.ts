@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { HomeUserComponent, QrcodeDialog } from './core/components/home-user/home-user.component';
 import { HomeNoUserComponent } from './core/components/home-no-user/home-no-user.component';
@@ -23,6 +24,7 @@ import { ListReposComponent } from './shared/components/list-repos/list-repos.co
 import { ContactsComponent } from './shared/components/contacts/contacts.component';
 import { GithubCornerComponent } from './shared/components/github-corner/github-corner.component';
 import { QrcodeComponent } from './shared/components/qrcode/qrcode.component';
+import { ConfigsComponent } from './shared/components/configs/configs.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { QrcodeComponent } from './shared/components/qrcode/qrcode.component';
     ContactsComponent,
     GithubCornerComponent,
     QrcodeComponent,
-    QrcodeDialog
+    QrcodeDialog,
+    ConfigsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { QrcodeComponent } from './shared/components/qrcode/qrcode.component';
     MatDialogModule,
     ClipboardModule,
     MatSnackBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

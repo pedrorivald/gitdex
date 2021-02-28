@@ -6,14 +6,17 @@ import { UserService } from './core/services/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   myForm: FormGroup = new FormGroup({
-    user: new FormControl()
+    user: new FormControl(),
   });
 
-  constructor(public userService: UserService, private router: Router) {}
+  constructor(
+    public userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.userService.onEnter();
