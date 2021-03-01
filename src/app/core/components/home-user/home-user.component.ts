@@ -108,5 +108,6 @@ export class HomeUserComponent implements OnInit {
 @Component({
   selector: 'qrcode-dialog',
   templateUrl: './qrcode.html',
+  styleUrls: ['./qrcode.scss'],
 })
 export class QrcodeDialog{}

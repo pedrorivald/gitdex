@@ -1,4 +1,4 @@
-@import './../../../../assets/scss/color-language.scss';
+@import "./../../../../assets/scss/color-language.scss";
 
 .showRepos {
   width: 95vw;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
- .repos {
+.repos {
   width: 90%;
 }
 
@@ -83,11 +83,25 @@
   font-weight: bold;
 }
 
-.my-pagination ::ng-deep .ngx-pagination li span{
+.my-pagination ::ng-deep .ngx-pagination li span {
   color: var(--color-font-primary);
 }
 
 .my-pagination ::ng-deep .ngx-pagination .current {
   background: var(--color-tertiary);
   border-radius: 5px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination a:hover,
+.ngx-pagination button:hover {
+  opacity: 0.8;
+  outline: none;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .pagination-next a::after,
+.my-pagination ::ng-deep .ngx-pagination .pagination-next.disabled::after,
+.my-pagination ::ng-deep .ngx-pagination .pagination-previous a::before,
+.my-pagination ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+  font-size: 1.5rem;
+  color: var(--color-tertiary);
 }

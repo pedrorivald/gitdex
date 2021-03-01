@@ -1,0 +1,11 @@
+button {
+  background-color: var(--color-tertiary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button span {
+  color: var(--color-white);
+  font-weight: bold;
+}
