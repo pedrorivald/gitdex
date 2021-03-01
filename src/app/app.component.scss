@@ -16,7 +16,7 @@
 .title div {
   font-family: 'Fredoka One', cursive;
   font-size: 4rem;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .title .dex {
@@ -31,7 +31,7 @@
 }
 
 .description div {
-  color: #fff;
+  color: var(--color-white);
   font-size: 1.5rem;
   text-align: center;
   font-weight: 500;
@@ -54,7 +54,8 @@
   border: none;
   border-radius: 20px;
   outline: none;
-  color: #333;
+  background-color: var(--color-bg-primary);
+  color: var(--color-font-primary);
 }
 
 .user-input input::placeholder {
@@ -72,7 +73,7 @@
   z-index: -1;
   width: 5px;
   height: 50vh;
-  background: #fff;
+  background: var(--color-bg-primary);
 }
 
 .content {
@@ -81,9 +82,9 @@
 
 .configs {
   display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center;
-  position: absolute;
   bottom: 12px;
   right: 12px;
 }

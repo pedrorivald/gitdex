@@ -11,5 +11,8 @@ export class ConfigsComponent implements OnInit {
 
   ngOnInit() {}
 
-  toggle() {}
+  toggle() {
+    window.document.body.classList.toggle('dark');
+  }
+
 }

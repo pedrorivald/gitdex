@@ -1,10 +1,10 @@
 .btn-settings:hover .icon-settings{
-  color: #345292;
+  color: var(--color-tertiary);
   animation: configs 0.3s linear;
 }
 .icon-settings {
   font-size: 2rem;
-  color: #09142c;
+  color: var(--color-primary);
 }
 
 @keyframes configs {
@@ -53,17 +53,13 @@
   width: 13px;
   left: 2px;
   bottom: 2px;
-  background-color:white;
+  background-color: var(--color-white);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #FF0070;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  background-color: var(--color-tertiary);
 }
 
 input:checked + .slider:before {
@@ -72,7 +68,6 @@ input:checked + .slider:before {
   transform: translateX(13px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 17px;
 }

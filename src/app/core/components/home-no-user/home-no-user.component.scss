@@ -7,7 +7,7 @@
 }
 
 .no-user {
-  background-color: #fff;
+  background-color: var(--color-bg-primary);
   width: 100%;
   height: 160px;
   border-top-left-radius: 100px;
@@ -22,7 +22,7 @@
   width: 150px;
   height: 150px;
   background: #666;
-  border: 5px solid #fff;
+  border: 5px solid var(--color-bg-primary);
   border-radius: 50%;
   margin-top: -60px;
 

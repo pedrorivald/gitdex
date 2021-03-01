@@ -15,6 +15,7 @@
   width: 90%;
   height: 80%;
   padding: 20px;
+  background-color: var(--color-bg-tertiary);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
@@ -32,12 +33,12 @@
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: bold;
-  color: #09142c;
+  color: var(--color-primary);
   text-align: center;
 }
 
 .repo-name a:hover {
-  color: #345292;
+  color: var(--color-tertiary);
 }
 
 .repo-description {
@@ -47,7 +48,7 @@
   justify-content: center;
   font-size: 1rem;
   text-align: center;
-  color: #333;
+  color: var(--color-font-primary);
 }
 
 .repo-count {
@@ -58,12 +59,12 @@
 
 .repo-count div {
   font-size: 1rem;
-  background-color: #d8d8d8;
+  background-color: var(--color-bg-secondary);
   border-radius: 7px;
   padding: 4px;
   margin: 5px;
   font-weight: bold;
-  color: #333;
+  color: var(--color-font-primary);
 }
 
 .div-pagination {
@@ -83,10 +84,10 @@
 }
 
 .my-pagination ::ng-deep .ngx-pagination li span{
-  color: #333;
+  color: var(--color-font-primary);
 }
 
 .my-pagination ::ng-deep .ngx-pagination .current {
-  background: #b78fc4;
+  background: var(--color-tertiary);
   border-radius: 5px;
 }

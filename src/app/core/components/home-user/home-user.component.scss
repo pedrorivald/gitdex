@@ -8,7 +8,7 @@
 }
 
 .with-user {
-  background-color: #fff;
+  background-color: var(--color-bg-primary);
   width: 100%;
   height: 100%;
   border-top-left-radius: 100px;
@@ -23,7 +23,7 @@
   width: 150px;
   height: 150px;
   background: #666;
-  border: 5px solid #fff;
+  border: 5px solid var(--color-bg-primary);
   border-radius: 50%;
   margin-top: -60px;
 
@@ -47,7 +47,7 @@
   padding-top: 5px;
   text-align: center;
   font-size: 1rem;
-  color: #666;
+  color: var(--color-font-tertiary);
 }
 
 .share {
@@ -67,11 +67,11 @@
 
 .qrcode mat-icon, .link mat-icon {
   font-size: 2rem;
-  color: #09142c;
+  color: var(--color-primary);
 }
 
 .qrcode mat-icon:hover, .link mat-icon:hover {
-  color: #005390;
+  color: var(--color-tertiary);
 }
 
 .infor {
@@ -106,12 +106,12 @@
 }
 
 .voice button mat-icon {
-  color: #09142c;
+  color: var(--color-primary);
   font-size: 2rem;
 }
 
 .voice button mat-icon:hover {
-  color: #345292;
+  color: var(--color-tertiary);
 }
 
 .social {
@@ -126,8 +126,8 @@
 .public-repositories {
   margin-top: 60px;
   border-radius: 10px;
-  background-color: #7a2364;
-  color: #fff;
+  background-color: var(--color-tertiary);
+  color: var(--color-white);
   text-align: center;
   font-size: 0.9rem;
   font-weight: 500;
@@ -148,18 +148,18 @@
 
 .icon {
   margin: 0px 5px 0px 5px;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .social .icon{
-  color: #09142c;
+  color: var(--color-primary);
 }
 
 ::ng-deep snack-bar-container.custom-class {
-  background: #09142c;
+  background: var(--color-primary);
 }
 
 ::ng-deep .custom-class .mat-simple-snackbar span{
-  color: #ffffff;
+  color: var(--color-font-secondary);
   font-weight: bold;
 }
