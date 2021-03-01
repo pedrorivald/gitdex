@@ -1,18 +1,31 @@
-.btn-settings:hover .icon-settings{
-  color: var(--color-tertiary);
-  animation: configs 0.3s linear;
+.btn-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
+
+.btn-settings:hover .icon-settings {
+  color: var(--color-tertiary);
+  animation: configs 0.5s linear;
+}
+
 .icon-settings {
+  width: 2.1rem;
+  height: 2.1rem;
   font-size: 2rem;
   color: var(--color-primary);
 }
 
 @keyframes configs {
   0% {
-    transform: rotate(45deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(-45deg);
+    transform: rotate(360deg);
   }
 }
 
