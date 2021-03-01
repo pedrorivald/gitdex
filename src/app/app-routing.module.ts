@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'user/:login', component: HomeUserComponent },
+  { path: 'user', component: HomeNoUserComponent },
   { path: '', component: HomeNoUserComponent }
 ];
 
