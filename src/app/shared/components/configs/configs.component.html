@@ -3,10 +3,36 @@
 </button>
 <mat-menu #configs="matMenu">
   <div class="menu-btn">
-    <label class="switch">
-      <input type="checkbox" (click)="toggle()">
-      <span class="slider round"></span>
-    </label>
-    Modo Escuro
+    <div>
+      <label class="switch">
+        <input type="checkbox" (click)="toggle()" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div>
+      {{ "CONFIG.DARKMODE" | translate }}
+    </div>
+  </div>
+  <div class="menu-btn">
+    <div>
+      <select
+        #langSelect
+        (change)="translate.use(langSelect.value)"
+        class="select-lang"
+      >
+        <option
+          *ngFor="let lang of translate.getLangs()"
+          [value]="lang"
+          [selected]="lang === translate.currentLang"
+        >
+          {{ lang }}
+        </option>
+      </select>
+    </div>
+
+    <div>
+      {{ "CONFIG.LANGUAGE" | translate }}
+    </div>
   </div>
 </mat-menu>

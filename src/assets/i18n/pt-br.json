@@ -1,0 +1,16 @@
+{
+  "HOME": {
+    "DESCRIPTION": "Quem é",
+    "DESCRIPTION-2": "esse rogramador?",
+    "INPUT": "Nome de Usuário"
+  },
+  "CONFIG": {
+    "DARKMODE": "Modo Escuro",
+    "LANGUAGE": "Idioma"
+  },
+  "HOME-USER": {
+    "FOLLOWERS": "Seguidores",
+    "FOLLOWING": "Seguindo",
+    "PUBLIC-REPOS": "Repositórios Públicos"
+  }
+}

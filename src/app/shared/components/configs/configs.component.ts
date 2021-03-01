@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-configs',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigsComponent implements OnInit {
 
-  constructor() {}
+  constructor(public translate: TranslateService) {
+      translate.addLangs(['pt-br', 'en']);
+      translate.setDefaultLang('pt-br');
+
+      const browserLang = translate.getBrowserLang();
+      translate.use(browserLang.match(/pt-br|en/) ? browserLang : 'pt-br');
+  }
 
   ngOnInit() {}
 

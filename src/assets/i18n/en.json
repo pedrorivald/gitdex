@@ -1,0 +1,16 @@
+{
+  "HOME": {
+    "DESCRIPTION": "Who's",
+    "DESCRIPTION-2": "that programmer?",
+    "INPUT": "User Name"
+  },
+  "CONFIG": {
+    "DARKMODE": "Darkmode",
+    "LANGUAGE": "Language"
+  },
+  "HOME-USER": {
+    "FOLLOWERS": "Followers",
+    "FOLLOWING": "Following",
+    "PUBLIC-REPOS": "Public Repositories"
+  }
+}

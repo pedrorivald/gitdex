@@ -36,8 +36,8 @@
     <div class="infor">
       <div class="social">
         <mat-icon class="icon">people_alt</mat-icon>
-        {{ userService.user.followers }} seguidores -
-        {{ userService.user.following }} seguindo
+        {{ userService.user.followers }} {{ 'HOME-USER.FOLLOWERS' | translate }} -
+        {{ userService.user.following }} {{ 'HOME-USER.FOLLOWING' | translate }}
       </div>
 
       <div class="social">
@@ -59,7 +59,7 @@
     </div>
 
     <div class="public-repositories" (click)="reposService.showRepos()" id="repos">
-      {{ userService.user.public_repos }} Repositórios Públicos
+      {{ userService.user.public_repos }} {{ 'HOME-USER.PUBLIC-REPOS' | translate }}
       <mat-icon class="icon">keyboard_arrow_down</mat-icon>
     </div>
 

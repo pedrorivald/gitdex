@@ -8,8 +8,8 @@
     </div>
 
     <div class="description" *ngIf="!userService.existUser()">
-      <div>Quem é</div>
-      <div class="programmer">esse programador?</div>
+      <div>{{ 'HOME.DESCRIPTION' | translate }}</div>
+      <div class="programmer">{{ 'HOME.DESCRIPTION-2' | translate }}</div>
     </div>
 
     <div
@@ -19,7 +19,7 @@
     >
       <input
         type="text"
-        placeholder="Nome de usuário"
+        placeholder="{{ 'HOME.INPUT' | translate }}"
         [formControlName]="'user'"
         [name]="'user'"
         id="user"

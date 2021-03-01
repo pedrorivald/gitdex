@@ -20,8 +20,17 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 150px;
+  width: 200px;
+  margin-top: 5px;
+  padding-top: 5px;
   font-weight: 500;
+}
+
+.menu-btn div{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .switch {
@@ -42,7 +51,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color:  rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -75,4 +84,18 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.select-lang {
+  outline: none;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.select-lang option {
+  font-weight: bold;
+  background-color: var(--color-bg-primary);
 }

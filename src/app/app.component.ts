@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './core/services/user.service';
 
 @Component({
@@ -15,8 +16,15 @@ export class AppComponent {
 
   constructor(
     public userService: UserService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['pt-br', 'en']);
+    translate.setDefaultLang('pt-br');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/pt-br|en/) ? browserLang : 'pt-br');
+  }
 
   ngOnInit() {
     this.userService.onEnter();
