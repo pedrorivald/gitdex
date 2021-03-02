@@ -7,11 +7,18 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./configs.component.scss'],
 })
 export class ConfigsComponent implements OnInit {
-
   constructor(public translate: TranslateService) {
-      translate.addLangs(['pt-br', 'en']);
-      translate.setDefaultLang('pt-br');
-      this.setLanguage(this.getLanguage());
+    translate.addLangs(['pt-br', 'en']);
+    translate.setDefaultLang('pt-br');
+    this.setLanguage(this.getLanguage());
+
+    if(this.getDarkmode() == '') {
+      this.setDarkmode('false');
+    }
+
+    if(this.getDarkmode() == 'true') {
+      window.document.body.classList.toggle('dark');
+    }
   }
 
   ngOnInit() {}
@@ -27,7 +34,21 @@ export class ConfigsComponent implements OnInit {
   }
 
   toggle() {
-    window.document.body.classList.toggle('dark');
+    if (this.getDarkmode() == 'false') {
+      window.document.body.classList.toggle('dark');
+      this.setDarkmode('true');
+    } else {
+      window.document.body.classList.toggle('dark');
+      this.setDarkmode('false');
+    }
   }
 
+  setDarkmode(status: string) {
+    window.localStorage.setItem('darkmode', status);
+  }
+
+  getDarkmode(): string {
+    const darkmode = window.localStorage.getItem('darkmode');
+    return darkmode == null ? '' : darkmode;
+  }
 }

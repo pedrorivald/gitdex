@@ -5,7 +5,19 @@
   <div class="menu-btn">
     <div>
       <label class="switch">
-        <input type="checkbox" (click)="toggle()" />
+        <input
+          *ngIf="getDarkmode() == 'true'"
+          type="checkbox"
+          checked
+          id="darkmode"
+          (click)="toggle()"
+        />
+        <input
+          *ngIf="getDarkmode() == 'false'"
+          type="checkbox"
+          id="darkmode"
+          (click)="toggle()"
+        />
         <span class="slider round"></span>
       </label>
     </div>
