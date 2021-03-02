@@ -68,10 +68,12 @@
 }
 
 .div-pagination {
+  z-index: 100;
   width: 80%;
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: -60px;
+  padding-bottom: 20px;
 }
 
 .my-pagination ::ng-deep .ngx-pagination ul {
@@ -104,4 +106,28 @@
 .my-pagination ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
   font-size: 1.5rem;
   color: var(--color-tertiary);
+}
+
+@media (max-width: 1100px) {
+  .div-pagination {
+    margin-top: -40px;
+  }
+}
+
+@media (max-width: 950px) {
+  .div-pagination {
+    margin-top: -80px;
+  }
+}
+
+@media (max-width: 750px) {
+  .div-pagination {
+    margin-top: -60px;
+  }
+}
+
+@media (max-width: 650px) {
+  .div-pagination {
+    margin-top: -120px;
+  }
 }

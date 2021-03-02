@@ -1,17 +1,4 @@
 <div class="showRepos">
-  <div class="div-pagination">
-    <a href="/user/{{ userService.user.login }}#repos">
-      <pagination-controls
-        class="my-pagination"
-        (pageChange)="reposService.currentPage = $event"
-        [maxSize]="3"
-        previousLabel=""
-        nextLabel=""
-        [autoHide]="true"
-      ></pagination-controls>
-    </a>
-  </div>
-
   <mat-grid-list
     [cols]="breakpoint"
     rowHeight="2:1.5"
@@ -42,4 +29,17 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+
+  <div class="div-pagination" id="div-pagination">
+    <a href="/user/{{ userService.user.login }}#repos">
+      <pagination-controls
+        class="my-pagination"
+        (pageChange)="reposService.currentPage = $event"
+        [maxSize]="3"
+        previousLabel=""
+        nextLabel=""
+        [autoHide]="true"
+      ></pagination-controls>
+    </a>
+  </div>
 </div>
