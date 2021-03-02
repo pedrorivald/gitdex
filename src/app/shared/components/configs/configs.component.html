@@ -29,7 +29,7 @@
   <div class="menu-btn">
     <div>
       <button class="language" mat-menu-item [matMenuTriggerFor]="languages">
-        {{ translate.currentLang }}
+        {{ languageService.translate.currentLang }}
       </button>
     </div>
 
@@ -42,8 +42,8 @@
 <mat-menu #languages="matMenu" xPosition="before" yPosition="above">
   <button
     class="select-language"
-    *ngFor="let lang of translate.getLangs()"
-    (click)="setLanguage(lang)"
+    *ngFor="let lang of languageService.translate.getLangs()"
+    (click)="languageService.setLanguage(lang)"
   >
     {{ lang }}
   </button>
