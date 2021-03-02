@@ -1,14 +1,18 @@
 $darkblue: #09142c;
+$fulldarkblue: #0a0518;
 $purple: #660066;
 $lightblue: #345292;
-$blackblue: #1f2933;
-$lightblackblue: #253444;
+$lightpurple: #483C67;
+$blackblue: #191622;
+$lightblackblue: #1e1a2c;
 $darkgray: #333333;
 $gray: #666666;
 $lightgray: #999999;
 $ultralightgray: #dddddd;
 $white: #ffffff;
 $darkwhite: #eeeeee;
+$magenta: #ff79c6;
+
 
 :root {
   --color-primary: #{$darkblue};
@@ -24,12 +28,14 @@ $darkwhite: #eeeeee;
   --color-font-tertiary: #{$gray};
 
   --color-white: #{$white};
+  --color-darkblue: #{$darkblue};
+  --color-magenta: transparent;
 }
 
 .dark {
   --color-primary: #{$darkwhite};
   --color-secondary: #{$purple};
-  --color-tertiary: #{$lightblue};
+  --color-tertiary: #{$lightpurple};
 
   --color-bg-primary: #{$blackblue};
   --color-bg-secondary: #{$blackblue};
@@ -40,6 +46,8 @@ $darkwhite: #eeeeee;
   --color-font-tertiary: #{$lightgray};
 
   --color-white: #{$darkwhite};
+  --color-darkblue: #{$fulldarkblue};
+  --color-magenta: #{$magenta};
 }
 
 * {
@@ -53,7 +61,7 @@ html, body { height: 100%; }
 
 body {
   // background: linear-gradient(to bottom, $darkblue 20%, $purple 100%);
-  background-color: $darkblue;
+  background-color: var(--color-darkblue);
   background-attachment: fixed;
   margin: 0;
   font-family: 'Roboto', "Helvetica Neue", sans-serif;
