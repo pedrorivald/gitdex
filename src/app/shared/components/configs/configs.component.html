@@ -31,7 +31,7 @@
   <button
     class="select-language"
     *ngFor="let lang of translate.getLangs()"
-    (click)="translate.use(lang)"
+    (click)="setLanguage(lang)"
   >
     {{ lang }}
   </button>
