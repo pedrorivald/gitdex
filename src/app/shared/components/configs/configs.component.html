@@ -1,7 +1,7 @@
 <button class="btn-settings" [matMenuTriggerFor]="configs">
   <mat-icon class="icon-settings">settings</mat-icon>
 </button>
-<mat-menu #configs="matMenu">
+<mat-menu #configs="matMenu" yPosition="above">
   <div class="menu-btn">
     <div>
       <label class="switch">
@@ -16,23 +16,23 @@
   </div>
   <div class="menu-btn">
     <div>
-      <select
-        #langSelect
-        (change)="translate.use(langSelect.value)"
-        class="select-lang"
-      >
-        <option
-          *ngFor="let lang of translate.getLangs()"
-          [value]="lang"
-          [selected]="lang === translate.currentLang"
-        >
-          {{ lang }}
-        </option>
-      </select>
+      <button class="language" mat-menu-item [matMenuTriggerFor]="languages">
+        {{ translate.currentLang }}
+      </button>
     </div>
 
     <div>
       {{ "CONFIG.LANGUAGE" | translate }}
     </div>
   </div>
+</mat-menu>
+
+<mat-menu #languages="matMenu" xPosition="before" yPosition="above">
+  <button
+    class="select-language"
+    *ngFor="let lang of translate.getLangs()"
+    (click)="translate.use(lang)"
+  >
+    {{ lang }}
+  </button>
 </mat-menu>

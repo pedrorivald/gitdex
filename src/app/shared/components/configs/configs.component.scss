@@ -99,16 +99,31 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.select-lang {
-  outline: none;
-  padding: 3px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
+.mat-menu-item-submenu-trigger::after {
+  display: none;
 }
 
-.select-lang option {
+.language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 32px;
   font-weight: bold;
-  background-color: var(--color-bg-primary);
+  color: var(--color-font-primary);
+}
+
+.select-language {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  padding: 7px 0px 7px 0px;
+  font-weight: bold;
+  color: var(--color-font-primary);
+}
+
+.select-language:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
