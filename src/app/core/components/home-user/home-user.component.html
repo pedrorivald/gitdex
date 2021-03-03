@@ -6,7 +6,9 @@
 <div class="home-profile" *ngIf="userService.existUser(); else noUser">
   <div class="with-user">
     <div class="with-user-image">
-      <img src="{{ userService.user.avatar_url }}" alt="Usuário" />
+      <a href="https://github.com/{{ userService.user.login }}" target="_blank">
+        <img src="{{ userService.user.avatar_url }}" alt="Usuário"/>
+      </a>
     </div>
 
     <div class="name-user">
@@ -65,17 +67,11 @@
     >
       {{ userService.user.public_repos }}
       {{ "HOME-USER.PUBLIC-REPOS" | translate }}
-      <mat-icon
-        class="icon"
-        *ngIf="!reposService.loading"
-      >
+      <mat-icon class="icon" *ngIf="!reposService.loading">
         keyboard_arrow_down
       </mat-icon>
 
-      <mat-icon
-        class="icon repos-loading"
-        *ngIf="reposService.loading"
-      >
+      <mat-icon class="icon repos-loading" *ngIf="reposService.loading">
         change_circle
       </mat-icon>
     </div>
