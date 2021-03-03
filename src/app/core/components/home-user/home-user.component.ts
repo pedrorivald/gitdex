@@ -1,3 +1,4 @@
+import { LanguageService } from './../../services/language.service';
 import { ReposService } from '../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,7 +32,8 @@ export class HomeUserComponent implements OnInit {
     private route: ActivatedRoute,
     public reposService: ReposService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
@@ -52,24 +54,22 @@ export class HomeUserComponent implements OnInit {
       duration: 1500,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      panelClass: ['custom-class']
+      panelClass: ['custom-class'],
     });
   }
 
   getUser() {
     this.subscription = this.route.params.subscribe((params: any) => {
       this.loginUser = params['login'] || '';
-      this.userService
-        .getUser(this.loginUser)
-        .subscribe((data: user) => {
-          this.userService.user = data;
-          if(!this.userService.existUser()) {
-            this.navigateBack();
-          }else {
-            this.userService.getStars(this.userService.user.login);
-            this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`
-          }
-        });
+      this.userService.getUser(this.loginUser).subscribe((data: user) => {
+        this.userService.user = data;
+        if (!this.userService.existUser()) {
+          this.navigateBack();
+        } else {
+          this.userService.getStars(this.userService.user.login);
+          this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`;
+        }
+      });
     });
   }
 
@@ -84,23 +84,30 @@ export class HomeUserComponent implements OnInit {
     this.voices = [];
   }
 
+  getLang() {
+    return this.languageService.translate.currentLang;
+  }
+
   getVoices() {
     this.voices = window.speechSynthesis?.getVoices();
   }
 
   speakBio(word: string) {
     this.getVoices();
-    const ptBrVoice = this.voices?.find((voice) => /pt-BR/.test(voice.lang));
-    const voice = ptBrVoice || this.voices[0];
+    const regex = new RegExp(`${this.getLang()}`, 'g');
+    const localVoice = this.voices?.find((voice) =>
+      regex.test(voice.lang)
+    );
+    const voice = localVoice || this.voices[0];
     this.speak(word, voice);
   }
 
   speak(word: string, voice: SpeechSynthesisVoice | null) {
     const utterance = new SpeechSynthesisUtterance();
     utterance.text = word;
-    utterance.lang = 'pt-BR';
+    utterance.lang = this.getLang();
     utterance.voice = voice;
-    utterance.rate = 1.2;
+    utterance.rate = 1;
     window.speechSynthesis.speak(utterance);
   }
 }
@@ -110,4 +117,4 @@ export class HomeUserComponent implements OnInit {
   templateUrl: './qrcode.html',
   styleUrls: ['./qrcode.scss'],
 })
-export class QrcodeDialog{}
+export class QrcodeDialog {}

@@ -7,14 +7,14 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageService {
 
   constructor(public translate: TranslateService) {
-    translate.addLangs(['pt-br', 'en']);
-    translate.setDefaultLang('pt-br');
+    translate.addLangs(['pt-BR', 'en-US']);
+    translate.setDefaultLang('pt-BR');
     this.setLanguage(this.getLanguage());
   }
 
   getLanguage(): string {
     const lang = window.localStorage.getItem('lang');
-    return lang == null ? 'pt-br' : lang;
+    return lang == null ? 'pt-BR' : lang;
   }
 
   setLanguage(lang: string) {
