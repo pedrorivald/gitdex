@@ -130,20 +130,13 @@
 
 @media (max-width: 650px) {
   .grid-repos {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-      "."
-      "."
-      "."
-      "."
-      "."
-      ".";
-    gap: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
   }
 
   .repo {
     width: 90%;
-    margin-left: 5%;
   }
 }

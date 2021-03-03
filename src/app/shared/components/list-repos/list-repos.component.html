@@ -5,7 +5,7 @@
       *ngFor="
         let repo of reposService.listRepo
           | paginate
-            : { itemsPerPage: 6, currentPage: reposService.currentPage };
+            : { itemsPerPage: itemsPerPage, currentPage: reposService.currentPage };
         let i = index
       "
     >
