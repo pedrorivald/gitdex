@@ -1,4 +1,4 @@
-import { LanguageService } from './../../services/language.service';
+import { VoicesService } from './../../services/voices.service';
 import { ReposService } from '../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,7 +20,6 @@ import {
 export class HomeUserComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  voices: SpeechSynthesisVoice[] = [];
   loginUser: string = '';
   subscription!: Subscription;
 
@@ -33,11 +32,11 @@ export class HomeUserComponent implements OnInit {
     public reposService: ReposService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private languageService: LanguageService
+    public voicesService: VoicesService
   ) {}
 
   ngOnInit(): void {
-    this.getVoices();
+    this.voicesService.getVoices();
     this.getUser();
   }
 
@@ -76,39 +75,8 @@ export class HomeUserComponent implements OnInit {
   navigateBack() {
     this.userService.reset();
     this.reposService.reset();
-    this.reset();
+    this.voicesService.reset();
     this.router.navigate(['']);
-  }
-
-  reset() {
-    this.voices = [];
-  }
-
-  getLang() {
-    return this.languageService.translate.currentLang;
-  }
-
-  getVoices() {
-    this.voices = window.speechSynthesis?.getVoices();
-  }
-
-  speakBio(word: string) {
-    this.getVoices();
-    const regex = new RegExp(`${this.getLang()}`, 'g');
-    const localVoice = this.voices?.find((voice) =>
-      regex.test(voice.lang)
-    );
-    const voice = localVoice || this.voices[0];
-    this.speak(word, voice);
-  }
-
-  speak(word: string, voice: SpeechSynthesisVoice | null) {
-    const utterance = new SpeechSynthesisUtterance();
-    utterance.text = word;
-    utterance.lang = this.getLang();
-    utterance.voice = voice;
-    utterance.rate = 1;
-    window.speechSynthesis.speak(utterance);
   }
 }
 

@@ -52,7 +52,7 @@
       </div>
 
       <div class="voice">
-        <button (click)="speakBio(userService.user.bio || 'sem bio')">
+        <button (click)="voicesService.speakBio(userService.user.bio || 'sem bio')">
           <mat-icon>volume_up</mat-icon>
         </button>
       </div>
