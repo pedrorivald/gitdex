@@ -3,10 +3,7 @@
   *ngIf="userService.existUser()"
 ></app-button-back>
 
-<div
-  class="home-profile"
-  *ngIf="userService.existUser(); else noUser"
->
+<div class="home-profile" *ngIf="userService.existUser(); else noUser">
   <div class="with-user">
     <div class="with-user-image">
       <img src="{{ userService.user.avatar_url }}" alt="Usuário" />
@@ -36,8 +33,9 @@
     <div class="infor">
       <div class="social">
         <mat-icon class="icon">people_alt</mat-icon>
-        {{ userService.user.followers }} {{ 'HOME-USER.FOLLOWERS' | translate }} -
-        {{ userService.user.following }} {{ 'HOME-USER.FOLLOWING' | translate }}
+        {{ userService.user.followers }}
+        {{ "HOME-USER.FOLLOWERS" | translate }} -
+        {{ userService.user.following }} {{ "HOME-USER.FOLLOWING" | translate }}
       </div>
 
       <div class="social">
@@ -52,15 +50,34 @@
       </div>
 
       <div class="voice">
-        <button (click)="voicesService.speakBio(userService.user.bio || 'sem bio')">
+        <button
+          (click)="voicesService.speakBio(userService.user.bio || 'sem bio')"
+        >
           <mat-icon>volume_up</mat-icon>
         </button>
       </div>
     </div>
 
-    <div class="public-repositories" (click)="reposService.showRepos()" id="repos">
-      {{ userService.user.public_repos }} {{ 'HOME-USER.PUBLIC-REPOS' | translate }}
-      <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+    <div
+      class="public-repositories"
+      (click)="reposService.showRepos()"
+      id="repos"
+    >
+      {{ userService.user.public_repos }}
+      {{ "HOME-USER.PUBLIC-REPOS" | translate }}
+      <mat-icon
+        class="icon"
+        *ngIf="!reposService.loading"
+      >
+        keyboard_arrow_down
+      </mat-icon>
+
+      <mat-icon
+        class="icon repos-loading"
+        *ngIf="reposService.loading"
+      >
+        change_circle
+      </mat-icon>
     </div>
 
     <app-list-repos *ngIf="reposService.showReposBoolean"></app-list-repos>

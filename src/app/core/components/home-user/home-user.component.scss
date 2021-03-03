@@ -152,6 +152,14 @@
   color: var(--color-white);
 }
 
+.repos-loading {
+  animation: rotacionar 2s infinite linear;
+}
+
+@keyframes rotacionar {
+  100% {transform: rotate(360deg);}
+}
+
 .social .icon{
   color: var(--color-primary);
 }

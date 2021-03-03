@@ -10,6 +10,7 @@ export class ReposService {
 
   repos: Observable<Repository[]> = empty();
   listRepo: Repository[] = [];
+  loading: boolean = false;
   public showReposBoolean: boolean = false;
   public currentPage = 1;
 
@@ -17,11 +18,13 @@ export class ReposService {
 
   public showRepos() {
     this.showReposBoolean = !this.showReposBoolean;
+    this.loading = true;
     this.repos = this.userService.getRepos(
       this.userService.user.login
     );
     this.repos.subscribe((repos) => {
       this.listRepo = repos;
+      this.loading = false;
     });
   }
 
