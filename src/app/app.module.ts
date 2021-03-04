@@ -28,6 +28,8 @@ import { ContactsComponent } from './shared/components/contacts/contacts.compone
 import { GithubCornerComponent } from './shared/components/github-corner/github-corner.component';
 import { QrcodeComponent } from './shared/components/qrcode/qrcode.component';
 import { ConfigsComponent } from './shared/components/configs/configs.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -69,7 +71,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
