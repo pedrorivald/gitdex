@@ -67,9 +67,14 @@ export class HomeUserComponent implements OnInit {
         } else {
           this.userService.getStars(this.userService.user.login);
           this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`;
+          this.setTitle(`GitDex | ${this.userService.user.name}`);
         }
       });
     });
+  }
+
+  setTitle(title: string) {
+    window.document.getElementsByTagName('title')[0].innerHTML = title;
   }
 
   navigateBack() {
