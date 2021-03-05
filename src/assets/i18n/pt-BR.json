@@ -12,5 +12,8 @@
     "FOLLOWERS": "Seguidores",
     "FOLLOWING": "Seguindo",
     "PUBLIC-REPOS": "Repositórios Públicos"
+  },
+  "WORKER": {
+    "UPDATE": "Nova atualização disponível. Aperte Ok para atualizar."
   }
 }

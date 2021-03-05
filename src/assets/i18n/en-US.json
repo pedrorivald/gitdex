@@ -12,5 +12,8 @@
     "FOLLOWERS": "Followers",
     "FOLLOWING": "Following",
     "PUBLIC-REPOS": "Public Repositories"
+  },
+  "WORKER": {
+    "UPDATE": "App Update available. Choose Ok to update"
   }
 }

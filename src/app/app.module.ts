@@ -9,7 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -84,9 +84,21 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private pushSw: SwPush, private update: SwUpdate) {
+  constructor(private update: SwUpdate, private translate: TranslateService) {
     update.available.subscribe((update) => {
-      console.log('Nova versão disponível');
+      this.showAppUpdateAlert();
     });
   }
+
+  showAppUpdateAlert() {
+    const message = `${this.translate.instant('WORKER.UPDATE')}`;
+    const update = window.confirm(`${message}`);
+    if(update) {
+      this.doAppUpdate();
+    }
+  }
+  doAppUpdate() {
+    window.document.location.reload();
+  }
 }
+
