@@ -14,6 +14,7 @@ export class ConfigsComponent implements OnInit {
 
     if (this.getDarkmode() == 'true') {
       window.document.body.classList.toggle('dark');
+      this.toggleThemeColor('#09142c');
     }
   }
 
@@ -23,10 +24,16 @@ export class ConfigsComponent implements OnInit {
     if (this.getDarkmode() == 'false') {
       window.document.body.classList.toggle('dark');
       this.setDarkmode('true');
+      this.toggleThemeColor('#09142c');
     } else {
       window.document.body.classList.toggle('dark');
       this.setDarkmode('false');
+      this.toggleThemeColor('#345292');
     }
+  }
+
+  toggleThemeColor(color: string) {
+    window.document.querySelector('meta[name="theme-color"]')?.setAttribute("content", color);
   }
 
   setDarkmode(status: string) {
