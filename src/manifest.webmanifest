@@ -1,7 +1,7 @@
 {
   "name": "GitDex",
   "short_name": "GitDex",
-  "theme_color": "#345292",
+  "theme_color": "#09142c",
   "background_color": "#09142c",
   "display": "standalone",
   "scope": "./",

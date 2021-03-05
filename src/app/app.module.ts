@@ -84,30 +84,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  VAPID_PUBLIC_KEY =
-    'BKuvEyR0kNzgO0zrjXH9I666UQzpFVDfwgdnOMyqrs3TLJIAeyDtTyM6Qjvf9KU-QvAjoCPmgAfzDpdxugsqbF0';
   constructor(private pushSw: SwPush, private update: SwUpdate) {
     update.available.subscribe((update) => {
       console.log('Nova versão disponível');
     });
-
-    this.SubscribeToPush();
-    pushSw.messages.subscribe((msg) => {
-      console.log(JSON.stringify(msg));
-    });
-  }
-
-  SubscribeToPush() {
-    this.pushSw
-      .requestSubscription({
-        serverPublicKey: this.VAPID_PUBLIC_KEY,
-      })
-      .then((pushSubscription) => {
-        console.log(JSON.stringify(pushSubscription));
-      })
-
-      .catch((err) => {
-        console.error('Ocorreu um erro:' + err);
-      });
   }
 }
