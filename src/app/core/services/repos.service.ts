@@ -1,6 +1,6 @@
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
-import { empty, Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { Repository } from 'src/app/shared/models/repo';
 
 @Injectable({
@@ -8,7 +8,8 @@ import { Repository } from 'src/app/shared/models/repo';
 })
 export class ReposService {
 
-  repos: Observable<Repository[]> = empty();
+  repos: Observable<Repository[]> = EMPTY;
+  reposPerPage = 9;
   listRepo: Repository[] = [];
   loading: boolean = false;
   public showReposBoolean: boolean = false;
@@ -17,7 +18,12 @@ export class ReposService {
   constructor(private userService: UserService) { }
 
   public showRepos() {
+    this.listRepo = [];
     this.showReposBoolean = !this.showReposBoolean;
+    this.getReposPerPage();
+  }
+
+  getRepos() {
     this.loading = true;
     this.repos = this.userService.getRepos(
       this.userService.user.login
@@ -28,8 +34,18 @@ export class ReposService {
     });
   }
 
+  getReposPerPage() {
+    let page = Math.ceil(this.listRepo.length / this.reposPerPage) + 1;
+    this.loading = true;
+    this.repos = this.userService.getReposPerPage(this.userService.user.login, page, this.reposPerPage);
+    this.repos.subscribe((repos) => {
+      this.listRepo = this.listRepo.concat(repos);
+      this.loading = false;
+    });
+  }
+
   reset() {
-    this.repos = empty();
+    this.repos = EMPTY;
     this.listRepo = [];
     this.showReposBoolean = false;
     this.currentPage = 1;

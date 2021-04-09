@@ -45,6 +45,14 @@ export class UserService {
       .pipe(take(1));
   }
 
+  getReposPerPage(name: string, page: number, perPage: number = 9) {
+    return this.http
+      .get<Repository[]>(
+        `${this.API}users/${name}/repos?page=${page}&per_page=${perPage}`
+      )
+      .pipe(take(1));
+  }
+
   getStars(name: string) {
     this.getRepos(name).subscribe((data: Repository[]) => {
       data.forEach((Repository) => {

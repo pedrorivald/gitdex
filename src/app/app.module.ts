@@ -12,6 +12,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -69,6 +71,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatSnackBarModule,
     MatGridListModule,
     MatMenuModule,
+    InfiniteScrollModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

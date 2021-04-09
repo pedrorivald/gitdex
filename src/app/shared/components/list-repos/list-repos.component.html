@@ -1,14 +1,7 @@
 <div class="showRepos">
-  <div class="grid-repos">
-    <div
-      class="repo"
-      *ngFor="
-        let repo of reposService.listRepo
-          | paginate
-            : { itemsPerPage: itemsPerPage, currentPage: reposService.currentPage };
-        let i = index
-      "
-    >
+  <div class="grid-repos" infinite-scroll [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+    <div class="repo" *ngFor="let repo of reposService.listRepo; let i = index;">
       <div class="repo-name">
         <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
       </div>
@@ -22,18 +15,5 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="div-pagination" id="div-pagination">
-    <a href="/user/{{ userService.user.login }}#repos">
-      <pagination-controls
-        class="my-pagination"
-        (pageChange)="reposService.currentPage = $event"
-        [maxSize]="3"
-        previousLabel=""
-        nextLabel=""
-        [autoHide]="true"
-      ></pagination-controls>
-    </a>
   </div>
 </div>

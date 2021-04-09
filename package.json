@@ -25,6 +25,7 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "angularx-qrcode": "^11.0.0",
+    "ngx-infinite-scroll": "^10.0.1",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
