@@ -48,7 +48,7 @@ export class UserService {
   getReposPerPage(name: string, page: number, perPage: number = 9) {
     return this.http
       .get<Repository[]>(
-        `${this.API}users/${name}/repos?page=${page}&per_page=${perPage}`
+        `${this.API}users/${name}/repos?sort=updated&page=${page}&per_page=${perPage}`
       )
       .pipe(take(1));
   }
