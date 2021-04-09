@@ -36,6 +36,7 @@ import { ConfigsComponent } from './shared/components/configs/configs.component'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ScrollTopComponent } from './shared/components/scroll-top/scroll-top.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     QrcodeComponent,
     QrcodeDialog,
     ConfigsComponent,
+    ScrollTopComponent,
   ],
   imports: [
     BrowserModule,

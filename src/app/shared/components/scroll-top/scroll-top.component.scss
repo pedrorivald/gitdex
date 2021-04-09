@@ -1,0 +1,30 @@
+.scroll-top {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 60px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.scroll-top:hover {
+  background-color: var(--color-tertiary);
+}
+
+.scroll-top:hover .scroll-icon {
+  color: var(--color-white);
+}
+
+.scroll-icon {
+  padding-right: 1px;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-font-secondary);
+}
