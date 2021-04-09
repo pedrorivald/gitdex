@@ -76,6 +76,28 @@
   color: var(--color-font-primary);
 }
 
+.infinite-scroll-loading {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.infinite-scroll-loading .icon {
+  font-size: 2rem;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.repos-loading {
+  animation: rotacionar 2s infinite linear;
+}
+
+@keyframes rotacionar {
+  100% {transform: rotate(360deg);}
+}
+
 .div-pagination {
   z-index: 100;
   width: 80%;

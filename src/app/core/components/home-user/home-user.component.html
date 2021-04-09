@@ -60,24 +60,14 @@
       </div>
     </div>
 
-    <div
-      class="public-repositories"
-      (click)="reposService.showRepos()"
-      id="repos"
-    >
+    <app-contacts></app-contacts>
+
+    <div class="public-repositories" id="repos">
       {{ userService.user.public_repos }}
       {{ "HOME-USER.PUBLIC-REPOS" | translate }}
-      <mat-icon class="icon" *ngIf="!reposService.loading">
-        keyboard_arrow_down
-      </mat-icon>
-
-      <mat-icon class="icon repos-loading" *ngIf="reposService.loading">
-        change_circle
-      </mat-icon>
     </div>
 
-    <app-list-repos *ngIf="reposService.showReposBoolean"></app-list-repos>
-    <app-contacts></app-contacts>
+    <app-list-repos></app-list-repos>
   </div>
 </div>
 

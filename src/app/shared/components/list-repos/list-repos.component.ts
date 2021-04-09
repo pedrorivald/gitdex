@@ -21,7 +21,6 @@ export class ListReposComponent implements OnInit {
   ngOnInit(): void {}
 
   onScrollDown() {
-    console.log("scrolled down!");
     this.reposService.getReposPerPage();
   }
 }
