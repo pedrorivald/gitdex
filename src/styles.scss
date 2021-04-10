@@ -57,7 +57,21 @@ $magenta: #ff79c6;
   padding: 0;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--color-bg-tertiary) var(--color-font-secondary);
+}
+
+body::-webkit-scrollbar {
+  background-color: var(--color-font-secondary);
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--color-tertiary);
+}
 
 body {
   // background: linear-gradient(to bottom, $darkblue 20%, $purple 100%);
