@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrollTopComponent implements OnInit {
 
+  scrolledPage = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    window.onscroll = () => {
+      window.scrollY > 100 ? this.scrolledPage = true : this.scrolledPage = false;
+    }
   }
 
   scrollTop() {
