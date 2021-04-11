@@ -1,19 +1,22 @@
 <div class="contacts" [ngClass]="reposService.showReposBoolean ? 'repos-active' : ''">
   <div>
-    <a
-      href="https://github.com/{{ userService.user.login }}"
-      target="_blank"
-      ><i class="fab fa-github"></i>{{ userService.user.login }}</a
-    >
+    <a href="https://github.com/{{ userService.user.login }}"
+      target="_blank" title="{{ userService.user.login }}">
+      <i class="fab fa-github"></i>
+    </a>
   </div>
-  <div *ngIf="userService.user.twitter_username != null">
-    <a
-      href="https://twitter.com/{{
-        userService.user.twitter_username
-      }}"
-      target="_blank"
-      ><i class="fab fa-twitter"></i
-      >{{ userService.user.twitter_username }}</a
-    >
+
+  <div *ngIf="userService.user.twitter_username">
+    <a href="https://twitter.com/{{ userService.user.twitter_username }}"
+      target="_blank" title="{{ userService.user.twitter_username }}">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+
+  <div *ngIf="userService.user.blog">
+    <a href="{{ userService.user.blog }}"
+      target="_blank" title="{{ userService.user.blog }}">
+      <i class="fas fa-link"></i>
+    </a>
   </div>
 </div>

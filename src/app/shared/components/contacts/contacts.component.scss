@@ -1,10 +1,8 @@
 .contacts {
   margin-top: 30px;
-  padding: 5px;
-  margin-bottom: 10px;
+  padding: 5px 8px 5px 8px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
   display: flex;
 }
 
@@ -13,15 +11,28 @@
 }
 
 .contacts div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px 5px 5px 5px;
 }
 
 .contacts a {
-  font-size: 0.9rem;
+  display: flex;
+  padding: 0px 3px 0px 3px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
   text-decoration: none;
 }
 
 .contacts i {
-  padding-right: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--color-primary);
+}
+
+.contacts i:hover {
+  color: var(--color-tertiary);
 }
