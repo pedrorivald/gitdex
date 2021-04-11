@@ -68,8 +68,15 @@ export class HomeUserComponent implements OnInit {
           this.userService.getStars(this.userService.user.login);
           this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`;
           this.setTitle(`${this.userService.user.name}`);
+          this.getStars();
         }
       });
+    });
+  }
+
+  getStars() {
+    this.userService.getStars(this.userService.user.login).subscribe((data: any) => {
+      this.userService.totalStars = data.length;
     });
   }
 

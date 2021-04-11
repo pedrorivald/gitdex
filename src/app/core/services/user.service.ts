@@ -54,11 +54,8 @@ export class UserService {
   }
 
   getStars(name: string) {
-    this.getRepos(name).subscribe((data: Repository[]) => {
-      data.forEach((Repository) => {
-        this.totalStars = Repository.stargazers_count + this.totalStars;
-      });
-    });
+    return this.http.get<any[]>(`${this.API}users/${name}/starred`)
+      .pipe(take(1));
   }
 
   existUser() {
