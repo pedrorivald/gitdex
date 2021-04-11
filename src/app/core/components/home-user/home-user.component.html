@@ -11,7 +11,7 @@
       </a>
     </div>
 
-    <div class="name-user">
+    <div class="name-user" *ngIf="userService.user.name">
       {{ userService.user.name }}
     </div>
 
@@ -41,17 +41,17 @@
       </div>
 
       <div class="social">
-        <mat-icon class="icon">location_on</mat-icon>
-        {{ userService.user.location }} -
+        <mat-icon class="icon" *ngIf="userService.user.location">location_on</mat-icon>
+        {{ userService.user.location }} <span *ngIf="userService.user.location">-</span>
         <mat-icon class="icon">star</mat-icon>
         {{ userService.totalStars }}
       </div>
 
-      <div class="bio">
+      <div class="bio" *ngIf="userService.user.bio">
         {{ userService.user.bio }}
       </div>
 
-      <div class="voice">
+      <div class="voice" *ngIf="userService.user.bio">
         <button
           (click)="voicesService.speakBio(userService.user.bio || 'sem bio')"
         >
