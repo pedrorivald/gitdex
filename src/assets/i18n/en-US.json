@@ -15,5 +15,8 @@
   },
   "WORKER": {
     "UPDATE": "App Update available. Choose Ok to update"
+  },
+  "SNACKBAR": {
+    "COPIED": "Copied Link!"
   }
 }

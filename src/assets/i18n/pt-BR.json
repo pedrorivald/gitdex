@@ -15,5 +15,8 @@
   },
   "WORKER": {
     "UPDATE": "Nova atualização disponível. Aperte Ok para atualizar."
+  },
+  "SNACKBAR": {
+    "COPIED": "Link Copiado!"
   }
 }

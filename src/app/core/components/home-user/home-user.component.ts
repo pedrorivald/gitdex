@@ -1,3 +1,4 @@
+import { TranslatorService } from './../../services/translator.service';
 import { VoicesService } from './../../services/voices.service';
 import { ReposService } from '../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
@@ -32,7 +33,8 @@ export class HomeUserComponent implements OnInit {
     public reposService: ReposService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    public voicesService: VoicesService
+    public voicesService: VoicesService,
+    private translator: TranslatorService
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class HomeUserComponent implements OnInit {
   }
 
   copyLink() {
-    this._snackBar.open('Link Copiado!', 'X', {
+    this._snackBar.open(this.translator.get('SNACKBAR.COPIED'), 'X', {
       duration: 1500,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
