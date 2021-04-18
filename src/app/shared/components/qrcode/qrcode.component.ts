@@ -1,5 +1,6 @@
 import { UserService } from './../../../core/services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-qrcode',
@@ -10,7 +11,7 @@ export class QrcodeComponent implements OnInit {
   public myAngularxQrCode: string = '';
 
   constructor(private userService: UserService) {
-    this.myAngularxQrCode = `https://gitdex.vercel.app/user/${this.userService.user.login}`;
+    this.myAngularxQrCode = `${environment.URL}user/${this.userService.user.login}`;
   }
 
   ngOnInit(): void {}

@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { NavigateService } from './../../services/navigate.service';
 import { TranslatorService } from './../../services/translator.service';
 import { VoicesService } from './../../services/voices.service';
@@ -79,7 +80,7 @@ export class HomeUserComponent implements OnInit {
           this.navigateService.navigateToHomeNoUser();
         } else {
           this.userService.getStars(this.userService.user.login);
-          this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`;
+          this.link = `${environment.URL}user/${this.userService.user.login}`;
           this.setTitle(`${this.userService.user.name}`);
           this.getStars();
         }
