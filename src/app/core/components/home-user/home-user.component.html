@@ -32,42 +32,7 @@
       </div>
     </div>
 
-    <div class="infor">
-      <div class="social">
-        <mat-icon class="icon">people_alt</mat-icon>
-        {{ userService.user.followers }}
-        {{ "HOME-USER.FOLLOWERS" | translate }} -
-        {{ userService.user.following }} {{ "HOME-USER.FOLLOWING" | translate }}
-      </div>
-
-      <div class="social">
-        <mat-icon class="icon" *ngIf="userService.user.location">location_on</mat-icon>
-        {{ userService.user.location }} <span *ngIf="userService.user.location">-</span>
-        <mat-icon class="icon">star</mat-icon>
-        {{ userService.totalStars }}
-      </div>
-
-      <div class="bio" *ngIf="userService.user.bio">
-        {{ userService.user.bio }}
-      </div>
-
-      <div class="voice" *ngIf="userService.user.bio">
-        <button
-          (click)="voicesService.speakBio(userService.user.bio || 'sem bio')"
-        >
-          <mat-icon>volume_up</mat-icon>
-        </button>
-      </div>
-    </div>
-
-    <app-contacts></app-contacts>
-
-    <div class="public-repositories" id="repos">
-      {{ userService.user.public_repos }}
-      {{ "HOME-USER.PUBLIC-REPOS" | translate }}
-    </div>
-
-    <app-list-repos></app-list-repos>
+    <router-outlet></router-outlet>
   </div>
 </div>
 
