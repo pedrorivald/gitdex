@@ -19,7 +19,7 @@ export class UserService {
     login: '',
   };
   public repositories: Repository[] = [];
-  public onEnterBoolean: boolean = true;
+  public loading: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -29,7 +29,7 @@ export class UserService {
       login: '',
     };
     this.repositories = [];
-    this.onEnterBoolean = false;
+    this.loading = false;
   }
 
   getUser(name: string) {
@@ -81,10 +81,5 @@ export class UserService {
 
   existRepository() {
     return this.repositories[0].owner.login != '' ? true : false;
-  }
-
-  onEnter() {
-    this.onEnterBoolean = !this.onEnterBoolean;
-    return this.onEnterBoolean;
   }
 }
