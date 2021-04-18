@@ -1,3 +1,5 @@
+import { VoicesService } from 'src/app/core/services/voices.service';
+import { ReposService } from './core/services/repos.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,14 +18,20 @@ export class AppComponent {
   constructor(
     public userService: UserService,
     private router: Router,
+    private reposService: ReposService,
+    private voicesService: VoicesService
   ) {}
 
-  ngOnInit() {
-    this.userService.onEnter();
+  reset() {
+    this.userService.reset();
+    this.reposService.reset();
+    this.voicesService.reset();
   }
 
+  ngOnInit() { }
+
   onEnter() {
-    this.userService.onEnter();
+    this.reset();
     this.router.navigate(['/user', this.myForm.value.user]);
   }
 }
