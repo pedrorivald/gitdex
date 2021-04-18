@@ -1,3 +1,4 @@
+import { Follow } from './../../shared/models/follow';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Repository } from 'src/app/shared/models/repo';
@@ -49,6 +50,22 @@ export class UserService {
     return this.http
       .get<Repository[]>(
         `${this.API}users/${name}/repos?sort=updated&page=${page}&per_page=${perPage}`
+      )
+      .pipe(take(1));
+  }
+
+  getFollowersPerPage(name: string, page: number, perPage: number = 9) {
+    return this.http
+      .get<Follow[]>(
+        `${this.API}users/${name}/followers?page=${page}&per_page=${perPage}`
+      )
+      .pipe(take(1));
+  }
+
+  getFollowingPerPage(name: string, page: number, perPage: number = 9) {
+    return this.http
+      .get<Follow[]>(
+        `${this.API}users/${name}/following?page=${page}&per_page=${perPage}`
       )
       .pipe(take(1));
   }
