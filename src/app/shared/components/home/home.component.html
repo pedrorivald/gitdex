@@ -1,0 +1,42 @@
+<div class="home">
+  <div class="infor">
+    <div class="social">
+      <mat-icon class="icon">people_alt</mat-icon>
+      <span [routerLink]="['followers']" class="follow no-select">
+        {{ userService.user.followers + ' ' + ("HOME-USER.FOLLOWERS" | translate) }}
+      </span>
+      -
+      <span [routerLink]="['following']" class="follow no-select">
+        {{ userService.user.following + ' ' + ("HOME-USER.FOLLOWING" | translate) }}
+      </span>
+    </div>
+
+    <div class="social">
+      <mat-icon class="icon" *ngIf="userService.user.location">location_on</mat-icon>
+      <span *ngIf="userService.user.location">{{ userService.user.location + ' -'}}</span>
+      <mat-icon class="icon">star</mat-icon>
+      {{ userService.totalStars }}
+    </div>
+
+    <div class="bio" *ngIf="userService.user.bio">
+      {{ userService.user.bio }}
+    </div>
+
+    <div class="voice" *ngIf="userService.user.bio">
+      <button
+        (click)="voicesService.speakBio(userService.user.bio || 'sem bio')"
+      >
+        <mat-icon>volume_up</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <app-contacts></app-contacts>
+
+  <div class="public-repositories" id="repos">
+    {{ userService.user.public_repos }}
+    {{ "HOME-USER.PUBLIC-REPOS" | translate }}
+  </div>
+
+  <app-list-repos></app-list-repos>
+</div>
