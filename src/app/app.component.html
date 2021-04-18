@@ -7,7 +7,7 @@
       <div class="dex">Dex</div>
     </div>
 
-    <div class="description" *ngIf="!userService.existUser()">
+    <div class="description">
       <div>{{ 'HOME.DESCRIPTION' | translate }}</div>
       <div class="programmer">{{ 'HOME.DESCRIPTION-2' | translate }}</div>
     </div>
@@ -15,7 +15,6 @@
     <div
       [formGroup]="myForm"
       class="user-input"
-      *ngIf="!userService.existUser()"
     >
       <input
         type="text"
@@ -27,7 +26,7 @@
       />
     </div>
 
-    <div class="bar" *ngIf="!userService.existUser()">
+    <div class="bar">
       <div></div>
     </div>
   </div>
