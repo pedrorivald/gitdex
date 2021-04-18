@@ -1,0 +1,23 @@
+<div class="show">
+  <div class="title">
+    {{ "HOME-USER.FOLLOWERS" | translate }}
+  </div>
+
+  <div class="grid" infinite-scroll [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+    <div class="follow" *ngFor="let followers of followService.listFollowers; let i = index;">
+      <div class="image">
+        <img src="{{ followers.avatar_url }}" alt="{{ 'HOME-USER.FOLLOWERS' | translate }}">
+      </div>
+      <div class="name">
+        <a href="{{ followers.html_url }}" target="_blank">{{ followers.login }}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="infinite-scroll-loading">
+    <mat-icon class="icon loading" *ngIf="followService.loading">
+      change_circle
+    </mat-icon>
+  </div>
+</div>
