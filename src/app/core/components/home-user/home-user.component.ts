@@ -1,3 +1,4 @@
+import { NavigateService } from './../../services/navigate.service';
 import { TranslatorService } from './../../services/translator.service';
 import { VoicesService } from './../../services/voices.service';
 import { ReposService } from '../../services/repos.service';
@@ -28,18 +29,25 @@ export class HomeUserComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private router: Router,
     private route: ActivatedRoute,
     public reposService: ReposService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     public voicesService: VoicesService,
-    private translator: TranslatorService
+    private translator: TranslatorService,
+    private navigateService: NavigateService
   ) {}
 
   ngOnInit(): void {
+    this.reset();
     this.voicesService.getVoices();
     this.getUser();
+  }
+
+  reset() {
+    this.userService.reset();
+    this.reposService.reset();
+    this.voicesService.reset();
   }
 
   ngOnDestroy() {
@@ -60,12 +68,15 @@ export class HomeUserComponent implements OnInit {
   }
 
   getUser() {
+    this.userService.loading = true;
+
     this.subscription = this.route.params.subscribe((params: any) => {
       this.loginUser = params['login'] || '';
       this.userService.getUser(this.loginUser).subscribe((data: user) => {
+        this.userService.loading = false;
         this.userService.user = data;
         if (!this.userService.existUser()) {
-          this.navigateBack();
+          this.navigateService.navigateToHomeNoUser();
         } else {
           this.userService.getStars(this.userService.user.login);
           this.link = `https://gitdex.vercel.app/user/${this.userService.user.login}`;
@@ -85,13 +96,6 @@ export class HomeUserComponent implements OnInit {
   setTitle(name: string) {
     name != 'null' ? (window.document.getElementsByTagName('title')[0].innerHTML = `GitDex | ${name}`)
       : window.document.getElementsByTagName('title')[0].innerHTML = `GitDex`;
-  }
-
-  navigateBack() {
-    this.userService.reset();
-    this.reposService.reset();
-    this.voicesService.reset();
-    this.router.navigate(['']);
   }
 }
 
