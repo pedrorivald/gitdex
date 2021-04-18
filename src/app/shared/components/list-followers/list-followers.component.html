@@ -1,3 +1,8 @@
+<app-button-back
+  (click)="navigateService.navigateToHomeUser(); reset()"
+  *ngIf="userService.existUser()"
+></app-button-back>
+
 <div class="show">
   <div class="title">
     {{ "HOME-USER.FOLLOWERS" | translate }}
