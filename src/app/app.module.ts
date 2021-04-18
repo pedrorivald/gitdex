@@ -37,6 +37,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ScrollTopComponent } from './shared/components/scroll-top/scroll-top.component';
+import { ListFollowersComponent } from './shared/components/list-followers/list-followers.component';
+import { ListFollowingComponent } from './shared/components/list-following/list-following.component';
+import { HomeComponent } from './shared/components/home/home.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -56,6 +59,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     QrcodeDialog,
     ConfigsComponent,
     ScrollTopComponent,
+    ListFollowersComponent,
+    ListFollowingComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
