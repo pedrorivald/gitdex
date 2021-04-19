@@ -1,3 +1,4 @@
+import { GithubService } from './github.service';
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
@@ -15,7 +16,7 @@ export class ReposService {
   public showReposBoolean: boolean = false;
   public currentPage = 1;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private githubService: GithubService) { }
 
   public showRepos() {
     this.listRepo = [];
@@ -25,7 +26,7 @@ export class ReposService {
 
   getRepos() {
     this.loading = true;
-    this.repos = this.userService.getRepos(
+    this.repos = this.githubService.getRepos(
       this.userService.user.login
     );
     this.repos.subscribe((repos) => {
@@ -37,7 +38,7 @@ export class ReposService {
   getReposPerPage() {
     let page = Math.ceil(this.listRepo.length / this.reposPerPage) + 1;
     this.loading = true;
-    this.repos = this.userService.getReposPerPage(this.userService.user.login, page, this.reposPerPage);
+    this.repos = this.githubService.getReposPerPage(this.userService.user.login, page, this.reposPerPage);
     this.repos.subscribe((repos) => {
       this.listRepo = this.listRepo.concat(repos);
       this.loading = false;

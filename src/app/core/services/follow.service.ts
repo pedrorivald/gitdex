@@ -1,3 +1,4 @@
+import { GithubService } from './github.service';
 import { Follow } from './../../shared/models/follow';
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
@@ -14,7 +15,7 @@ export class FollowService {
   pageFollowers = 0;
   pageFollowing = 0;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private githubService: GithubService) { }
 
   getFollowersPerPage() {
     let page = Math.ceil(this.listFollowers.length / this.followPerPage) + 1;
@@ -24,7 +25,7 @@ export class FollowService {
     } else { return; }
 
     this.loading = true;
-    this.userService.getFollowersPerPage(this.userService.user.login, this.pageFollowers, this.followPerPage)
+    this.githubService.getFollowersPerPage(this.userService.user.login, this.pageFollowers, this.followPerPage)
       .subscribe((follow) => {
         this.listFollowers = this.listFollowers.concat(follow);
         this.loading = false;
@@ -39,7 +40,7 @@ export class FollowService {
     } else { return; }
 
     this.loading = true;
-    this.userService.getFollowingPerPage(this.userService.user.login, this.pageFollowing, this.followPerPage)
+    this.githubService.getFollowingPerPage(this.userService.user.login, this.pageFollowing, this.followPerPage)
       .subscribe((follow) => {
         this.listFollowing = this.listFollowing.concat(follow);
         this.loading = false;

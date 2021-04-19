@@ -1,3 +1,4 @@
+import { GithubService } from './../../services/github.service';
 import { environment } from 'src/environments/environment';
 import { NavigateService } from './../../services/navigate.service';
 import { TranslatorService } from './../../services/translator.service';
@@ -36,7 +37,8 @@ export class HomeUserComponent implements OnInit {
     private _snackBar: MatSnackBar,
     public voicesService: VoicesService,
     private translator: TranslatorService,
-    private navigateService: NavigateService
+    private navigateService: NavigateService,
+    private githubService: GithubService
   ) {}
 
   ngOnInit(): void {
@@ -73,13 +75,13 @@ export class HomeUserComponent implements OnInit {
 
     this.subscription = this.route.params.subscribe((params: any) => {
       this.loginUser = params['login'] || '';
-      this.userService.getUser(this.loginUser).subscribe((data: user) => {
+      this.githubService.getUser(this.loginUser).subscribe((data: user) => {
         this.userService.loading = false;
         this.userService.user = data;
         if (!this.userService.existUser()) {
           this.navigateService.navigateToHomeNoUser();
         } else {
-          this.userService.getStars(this.userService.user.login);
+          this.githubService.getStars(this.userService.user.login);
           this.link = `${environment.URL}user/${this.userService.user.login}`;
           this.setTitle(`${this.userService.user.name}`);
           this.getStars();
@@ -89,7 +91,7 @@ export class HomeUserComponent implements OnInit {
   }
 
   getStars() {
-    this.userService.getStars(this.userService.user.login).subscribe((data: any) => {
+    this.githubService.getStars(this.userService.user.login).subscribe((data: any) => {
       this.userService.totalStars = data.length;
     });
   }

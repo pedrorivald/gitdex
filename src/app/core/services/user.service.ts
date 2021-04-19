@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  private readonly API = environment.API;
-
   public totalStars: number = 0;
   public user: user = {
     login: '',
@@ -21,7 +19,7 @@ export class UserService {
   public repositories: Repository[] = [];
   public loading: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router) {}
 
   reset() {
     this.totalStars = 0;
@@ -30,49 +28,6 @@ export class UserService {
     };
     this.repositories = [];
     this.loading = false;
-  }
-
-  getUser(name: string) {
-    return this.http
-      .get<user>(`${this.API}users/${name}`)
-      .pipe(take(1))
-  }
-
-  getRepos(name: string) {
-    return this.http
-      .get<Repository[]>(
-        `${this.API}users/${name}/repos`
-      )
-      .pipe(take(1));
-  }
-
-  getReposPerPage(name: string, page: number, perPage: number = 9) {
-    return this.http
-      .get<Repository[]>(
-        `${this.API}users/${name}/repos?sort=updated&page=${page}&per_page=${perPage}`
-      )
-      .pipe(take(1));
-  }
-
-  getFollowersPerPage(name: string, page: number, perPage: number = 9) {
-    return this.http
-      .get<Follow[]>(
-        `${this.API}users/${name}/followers?page=${page}&per_page=${perPage}`
-      )
-      .pipe(take(1));
-  }
-
-  getFollowingPerPage(name: string, page: number, perPage: number = 9) {
-    return this.http
-      .get<Follow[]>(
-        `${this.API}users/${name}/following?page=${page}&per_page=${perPage}`
-      )
-      .pipe(take(1));
-  }
-
-  getStars(name: string) {
-    return this.http.get<any[]>(`${this.API}users/${name}/starred`)
-      .pipe(take(1));
   }
 
   existUser() {
