@@ -32,6 +32,7 @@ export class AppComponent {
 
   onEnter() {
     this.reset();
+    document.getElementById('user')?.blur();
     this.router.navigate(['/user', this.myForm.value.user]);
   }
 }

@@ -61,13 +61,13 @@
 
 @media (max-height: 470px) {
   .home-no-profile {
-    display: none;
+    margin-top: 150px;
   }
 }
 
 @media (min-height: 470px) {
-  .no-user{
-    height: 200px;
+  .home-no-profile {
+    margin-top: 150px;
   }
 }
 
