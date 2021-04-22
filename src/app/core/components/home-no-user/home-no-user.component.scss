@@ -1,5 +1,6 @@
 .home-no-profile {
-  width: 100vw;
+  width: 100%;
+  margin-top: 150px;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@
 .no-user {
   background-color: var(--color-bg-primary);
   width: 100%;
-  height: 160px;
+  min-height: 60vh;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
 
@@ -57,34 +58,4 @@
   height: 20px;
   border-radius: 50%;
   background-color: #666;
-}
-
-@media (max-height: 470px) {
-  .home-no-profile {
-    margin-top: 150px;
-  }
-}
-
-@media (min-height: 470px) {
-  .home-no-profile {
-    margin-top: 150px;
-  }
-}
-
-@media (min-height: 570px) {
-  .no-user{
-    height: 250px;
-  }
-}
-
-@media (min-height: 670px) {
-  .no-user{
-    height: 300px;
-  }
-}
-
-@media (min-height: 770px) {
-  .no-user{
-    height: 350px;
-  }
 }
