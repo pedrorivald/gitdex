@@ -40,6 +40,7 @@ import { ScrollTopComponent } from './shared/components/scroll-top/scroll-top.co
 import { ListFollowersComponent } from './shared/components/list-followers/list-followers.component';
 import { ListFollowingComponent } from './shared/components/list-following/list-following.component';
 import { HomeComponent } from './shared/components/home/home.component';
+import { ListStarredComponent } from './shared/components/list-starred/list-starred.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ListFollowersComponent,
     ListFollowingComponent,
     HomeComponent,
+    ListStarredComponent,
   ],
   imports: [
     BrowserModule,

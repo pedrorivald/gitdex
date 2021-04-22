@@ -1,3 +1,4 @@
+import { StarredService } from './../../services/starred.service';
 import { GithubService } from './../../services/github.service';
 import { environment } from 'src/environments/environment';
 import { NavigateService } from './../../services/navigate.service';
@@ -38,7 +39,8 @@ export class HomeUserComponent implements OnInit {
     public voicesService: VoicesService,
     private translator: TranslatorService,
     private navigateService: NavigateService,
-    private githubService: GithubService
+    private githubService: GithubService,
+    public starredService: StarredService
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class HomeUserComponent implements OnInit {
     this.userService.reset();
     this.reposService.reset();
     this.voicesService.reset();
+    this.starredService.reset();
   }
 
   ngOnDestroy() {
@@ -84,15 +87,9 @@ export class HomeUserComponent implements OnInit {
           this.githubService.getStars(this.userService.user.login);
           this.link = `${environment.URL}user/${this.userService.user.login}`;
           this.setTitle(`${this.userService.user.name}`);
-          this.getStars();
+          this.starredService.getStarred();
         }
       });
-    });
-  }
-
-  getStars() {
-    this.githubService.getStars(this.userService.user.login).subscribe((data: any) => {
-      this.userService.totalStars = data.length;
     });
   }
 

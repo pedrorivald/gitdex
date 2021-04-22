@@ -26,8 +26,14 @@ export class GithubService {
   }
 
   getStars(name: string) {
-    return this.http.get<any[]>(`${this.API}users/${name}/starred`)
+    return this.http.get<Repository[]>(`${this.API}users/${name}/starred?page=1&per_page=999`)
       .pipe(take(1));
+  }
+
+  getStarredPerPage(name: string, page: number, perPage: number = 9) {
+    return this.http.get<Repository[]>
+      (`${this.API}users/${name}/starred?page=${page}&per_page=${perPage}`)
+        .pipe(take(1));
   }
 
   getReposPerPage(name: string, page: number, perPage: number = 9) {

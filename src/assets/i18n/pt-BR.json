@@ -11,7 +11,8 @@
   "HOME-USER": {
     "FOLLOWERS": "Seguidores",
     "FOLLOWING": "Seguindo",
-    "PUBLIC-REPOS": "Repositórios Públicos"
+    "PUBLIC-REPOS": "Repositórios Públicos",
+    "STARRED": "Marcados com estrela"
   },
   "WORKER": {
     "UPDATE": "Nova atualização disponível. Aperte Ok para atualizar."

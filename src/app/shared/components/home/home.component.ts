@@ -1,3 +1,4 @@
+import { StarredService } from './../../../core/services/starred.service';
 import { ReposService } from './../../../core/services/repos.service';
 import { NavigateService } from './../../../core/services/navigate.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
     public userService: UserService,
     public voicesService: VoicesService,
     public navigateService: NavigateService,
-    private reposService: ReposService
+    private reposService: ReposService,
+    public starredService: StarredService
   ) {}
 
   ngOnInit(): void {}
@@ -23,5 +25,6 @@ export class HomeComponent implements OnInit {
     this.userService.reset();
     this.reposService.reset();
     this.voicesService.reset();
+    this.starredService.reset();
   }
 }

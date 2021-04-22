@@ -1,3 +1,4 @@
+import { ListStarredComponent } from './shared/components/list-starred/list-starred.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { ListFollowingComponent } from './shared/components/list-following/list-following.component';
 import { ListFollowersComponent } from './shared/components/list-followers/list-followers.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'followers', component: ListFollowersComponent },
-      { path: 'following', component: ListFollowingComponent }
+      { path: 'following', component: ListFollowingComponent },
+      { path: 'starred', component: ListStarredComponent }
     ]
   },
   { path: 'user', component: HomeNoUserComponent },

@@ -1,3 +1,4 @@
+import { StarredService } from './core/services/starred.service';
 import { VoicesService } from 'src/app/core/services/voices.service';
 import { ReposService } from './core/services/repos.service';
 import { Component } from '@angular/core';
@@ -19,13 +20,15 @@ export class AppComponent {
     public userService: UserService,
     private router: Router,
     private reposService: ReposService,
-    private voicesService: VoicesService
+    private voicesService: VoicesService,
+    private starredService: StarredService
   ) {}
 
   reset() {
     this.userService.reset();
     this.reposService.reset();
     this.voicesService.reset();
+    this.starredService.reset();
   }
 
   ngOnInit() { }

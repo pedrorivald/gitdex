@@ -1,0 +1,133 @@
+@import "./../../../../assets/scss/color-language.scss";
+
+.show {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 1.7rem;
+  text-align: center;
+  line-height: 1;
+  padding: 20px;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+
+.grid-repos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";
+}
+
+.repo {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.repo-name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.repo-name a {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.repo-name a:hover {
+  color: var(--color-tertiary);
+}
+
+.repo-description {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-font-primary);
+}
+
+.repo-count {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.repo-count div {
+  font-size: 1rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 7px;
+  padding: 4px;
+  margin: 5px;
+  font-weight: bold;
+  color: var(--color-font-primary);
+}
+
+.infinite-scroll-loading {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.infinite-scroll-loading .icon {
+  font-size: 2rem;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.repos-loading {
+  animation: rotacionar 2s infinite linear;
+}
+
+@keyframes rotacionar {
+  100% {transform: rotate(360deg);}
+}
+
+@media (max-width: 1000px) {
+  .grid-repos {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      ". ."
+      ". ."
+      ". .";
+  }
+}
+
+@media (max-width: 650px) {
+  .grid-repos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .repo {
+    width: 90%;
+  }
+}

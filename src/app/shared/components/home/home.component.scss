@@ -16,11 +16,19 @@
   background-color: var(--color-bg-tertiary);
 }
 
+.link {
+  color: var(--color-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  outline: none;
+}
+
+.link:hover {
+  color: var(--color-tertiary);
+}
+
 .follow {
   margin-right: 3px;
-  text-decoration: underline;
-  cursor: pointer;
-  outline: none;
 }
 
 .follow:last-child {

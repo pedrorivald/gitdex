@@ -11,7 +11,8 @@
   "HOME-USER": {
     "FOLLOWERS": "Followers",
     "FOLLOWING": "Following",
-    "PUBLIC-REPOS": "Public Repositories"
+    "PUBLIC-REPOS": "Public Repositories",
+    "STARRED": "Starred"
   },
   "WORKER": {
     "UPDATE": "App Update available. Choose Ok to update"
