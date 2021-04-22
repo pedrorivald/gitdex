@@ -5,7 +5,7 @@
 
 <div class="show">
   <div class="title">
-    {{ "HOME-USER.FOLLOWING" | translate }}
+    {{ userService.user.following + ' - ' + ("HOME-USER.FOLLOWING" | translate) }}
   </div>
 
   <div class="grid" infinite-scroll [infiniteScrollDistance]="scrollDistance"
