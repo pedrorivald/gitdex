@@ -31,8 +31,12 @@ export class AppComponent {
   ngOnInit() { }
 
   onEnter() {
-    this.reset();
     document.getElementById('user')?.blur();
-    this.router.navigate(['/user', this.myForm.value.user]);
+    if(this.myForm.value.user === this.userService.user.login) {
+      location.reload();
+    }else {
+      this.reset();
+      this.router.navigate(['/user', this.myForm.value.user]);
+    }
   }
 }
