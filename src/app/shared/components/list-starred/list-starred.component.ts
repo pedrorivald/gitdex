@@ -18,13 +18,10 @@ export class ListStarredComponent implements OnInit {
     public navigateService: NavigateService
   ) {}
 
-  ngOnInit(): void {
-    this.reset();
-    this.starredService.getStarredPerPage(1);
-  }
+  ngOnInit(): void {}
 
   onScrollDown() {
-    this.starredService.getStarredPerPage();
+    this.starredService.getStarredPerPageByTotal();
   }
 
   reset() {

@@ -1,5 +1,5 @@
 <app-button-back
-  (click)="navigateService.navigateToHomeUser(); reset()"
+  (click)="navigateService.navigateToHomeUser(userService.user.login);"
   *ngIf="userService.existUser()"
 ></app-button-back>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="infinite-scroll-loading">
-    <mat-icon class="icon repos-loading" *ngIf="starredService.loading">
+    <mat-icon class="icon repos-loading" *ngIf="starredService.loadingTotal">
       change_circle
     </mat-icon>
   </div>

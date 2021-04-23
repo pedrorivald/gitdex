@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Repository } from 'src/app/shared/models/repo';
 import { user } from 'src/app/shared/models/user';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-
   public user: user = {
     login: '',
   };
   public repositories: Repository[] = [];
   public loading: boolean = false;
+  public linkUser = '';
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   reset() {
     this.user = {

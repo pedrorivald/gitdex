@@ -1,5 +1,5 @@
 <app-button-back
-  (click)="navigateService.navigateToHomeUser(); reset()"
+  (click)="navigateService.navigateToHomeUser(userService.user.login); reset()"
   *ngIf="userService.existUser()"
 ></app-button-back>
 

@@ -1,14 +1,10 @@
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from './../../services/login.service';
 import { StarredService } from './../../services/starred.service';
-import { GithubService } from './../../services/github.service';
-import { environment } from 'src/environments/environment';
-import { NavigateService } from './../../services/navigate.service';
 import { TranslatorService } from './../../services/translator.service';
 import { VoicesService } from './../../services/voices.service';
 import { ReposService } from '../../services/repos.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { user } from 'src/app/shared/models/user';
 import { UserService } from '../../services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import {
@@ -25,28 +21,25 @@ import {
 export class HomeUserComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  loginUser: string = '';
-  subscription!: Subscription;
-
-  public link = ``;
 
   constructor(
     public userService: UserService,
-    private route: ActivatedRoute,
     public reposService: ReposService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     public voicesService: VoicesService,
     private translator: TranslatorService,
-    private navigateService: NavigateService,
-    private githubService: GithubService,
-    public starredService: StarredService
+    public starredService: StarredService,
+    private loginService: LoginService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.reset();
     this.voicesService.getVoices();
-    this.getUser();
+    this.route.params.subscribe((params: any) => {
+      this.loginService.login(params['login'] || '');
+    });
   }
 
   reset() {
@@ -54,10 +47,6 @@ export class HomeUserComponent implements OnInit {
     this.reposService.reset();
     this.voicesService.reset();
     this.starredService.reset();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   openQRCode() {
@@ -71,31 +60,6 @@ export class HomeUserComponent implements OnInit {
       verticalPosition: this.verticalPosition,
       panelClass: ['custom-class'],
     });
-  }
-
-  getUser() {
-    this.userService.loading = true;
-
-    this.subscription = this.route.params.subscribe((params: any) => {
-      this.loginUser = params['login'] || '';
-      this.githubService.getUser(this.loginUser).subscribe((data: user) => {
-        this.userService.loading = false;
-        this.userService.user = data;
-        if (!this.userService.existUser()) {
-          this.navigateService.navigateToHomeNoUser();
-        } else {
-          this.githubService.getStars(this.userService.user.login);
-          this.link = `${environment.URL}user/${this.userService.user.login}`;
-          this.setTitle(`${this.userService.user.name}`);
-          this.starredService.getStarred();
-        }
-      });
-    });
-  }
-
-  setTitle(name: string) {
-    name != 'null' ? (window.document.getElementsByTagName('title')[0].innerHTML = `GitDex | ${name}`)
-      : window.document.getElementsByTagName('title')[0].innerHTML = `GitDex`;
   }
 }
 
