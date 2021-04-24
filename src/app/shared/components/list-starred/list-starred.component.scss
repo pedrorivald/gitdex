@@ -16,6 +16,16 @@
   padding: 20px;
   padding-bottom: 30px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.starred-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
 }
 
 .grid-repos {
