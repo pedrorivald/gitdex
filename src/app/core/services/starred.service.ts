@@ -57,7 +57,8 @@ export class StarredService {
   }
 
   getStarredPerPageByTotal(page_ = 0) {
-    console.log('teste', page_)
+    if(!page_ && this.pageByTotal == 0) { return; }
+
     this.loading = false;
     let page = Math.ceil(this.listStarred.length / this.reposPerPage) + 1;
     if(this.pageByTotal != page) {
@@ -75,7 +76,6 @@ export class StarredService {
       if(this.totalStarred[i]) { newList.push(this.totalStarred[i]); }
     }
     this.listStarred = this.listStarred.concat(newList);
-    console.log(this.listStarred)
   }
 
   reset() {
