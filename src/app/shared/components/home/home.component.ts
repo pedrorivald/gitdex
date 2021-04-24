@@ -27,4 +27,8 @@ export class HomeComponent implements OnInit {
     this.voicesService.reset();
     this.starredService.reset();
   }
+
+  locationMaps() {
+    return 'https://www.google.com.br/maps/place/'+this.userService.user.location?.replace(/\s+/g, '+');
+  }
 }
