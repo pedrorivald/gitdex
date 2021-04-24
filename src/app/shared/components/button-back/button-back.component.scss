@@ -19,3 +19,11 @@
 .btn mat-icon:hover {
   color: var(--color-tertiary);
 }
+
+.btn .changeColor {
+  color: var(--color-tertiary);
+}
+
+.btn .changeColor:hover {
+  color: var(--color-primary);
+}

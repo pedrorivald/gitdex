@@ -1,5 +1,5 @@
 <div class="home-profile" *ngIf="userService.existUser(); else noUser">
-  <div class="with-user">
+  <div class="with-user" id="with-user">
     <div class="with-user-image">
       <a href="https://github.com/{{ userService.user.login }}" target="_blank">
         <img src="{{ userService.user.avatar_url }}" alt="Usuário"/>
