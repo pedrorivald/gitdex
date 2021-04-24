@@ -114,4 +114,7 @@
 
 .social .icon{
   color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
