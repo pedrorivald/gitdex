@@ -18,6 +18,7 @@
     "UPDATE": "Nova atualização disponível. Aperte Ok para atualizar."
   },
   "SNACKBAR": {
-    "COPIED": "Link Copiado!"
+    "COPIED": "Link Copiado!",
+    "USER-NOT-FOUND": "Usuário não encontrado."
   }
 }

@@ -18,6 +18,7 @@
     "UPDATE": "App Update available. Choose Ok to update"
   },
   "SNACKBAR": {
-    "COPIED": "Copied Link!"
+    "COPIED": "Copied Link!",
+    "USER-NOT-FOUND": "User not found."
   }
 }
