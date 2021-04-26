@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollService } from 'src/app/core/services/scroll.service';
 
 @Component({
   selector: 'app-button-back',
@@ -7,22 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonBackComponent implements OnInit {
 
-  constructor() { }
+  constructor(public scrollService: ScrollService) { }
 
-  changeColor = false;
-
-  ngOnInit(): void {
-    window.onscroll = () => this.withUserOnTop();
-  }
-
-  withUserOnTop() {
-    let toTop = document.getElementById('with-user')?.getBoundingClientRect().top || 100;
-    this.changeColor = (this.getDarkmode() == 'false' && toTop < 10);
-  }
-
-  getDarkmode(): string {
-    const darkmode = window.localStorage.getItem('darkmode');
-    return darkmode == null ? '' : darkmode;
-  }
-
+  ngOnInit(): void { }
 }

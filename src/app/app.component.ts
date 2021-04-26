@@ -1,3 +1,4 @@
+import { ScrollService } from 'src/app/core/services/scroll.service';
 import { StarredService } from './core/services/starred.service';
 import { VoicesService } from 'src/app/core/services/voices.service';
 import { ReposService } from './core/services/repos.service';
@@ -21,7 +22,8 @@ export class AppComponent {
     private router: Router,
     private reposService: ReposService,
     private voicesService: VoicesService,
-    private starredService: StarredService
+    private starredService: StarredService,
+    private scrollService: ScrollService
   ) {}
 
   reset() {
@@ -31,7 +33,9 @@ export class AppComponent {
     this.starredService.reset();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.scrollService.onScroll();
+  }
 
   onEnter() {
     document.getElementById('user')?.blur();

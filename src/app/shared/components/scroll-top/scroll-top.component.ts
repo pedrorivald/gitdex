@@ -1,3 +1,4 @@
+import { ScrollService } from './../../../core/services/scroll.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,18 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrollTopComponent implements OnInit {
 
-  scrolledPage = false;
+  constructor(public scrollService: ScrollService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-    window.onscroll = () => {
-      window.scrollY > 100 ? this.scrolledPage = true : this.scrolledPage = false;
-    }
-  }
-
-  scrollTop() {
-    document.querySelector('body')?.scrollIntoView({ behavior: 'smooth' });
-  }
-
+  ngOnInit(): void { }
 }
