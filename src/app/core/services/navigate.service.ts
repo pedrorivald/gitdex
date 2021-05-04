@@ -12,6 +12,7 @@ export class NavigateService {
   }
 
   navigateToHomeNoUser() {
+    window.document.getElementsByTagName('title')[0].innerHTML = `GitDex`;
     this.router.navigate(['']);
   }
 }
